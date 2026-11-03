@@ -1374,7 +1374,9 @@ public final class ActionPlanner {
                 }
                 JsonObject payload = new JsonObject();
                 payload.addProperty("index", i);
-                add(out, ActionTypes.CHOOSE_MATCH_CARD, "翻牌 #" + i + " " + clean(card.name),
+                // 0.1.5: 只有翻开过的牌才给名字，其余是「背面朝上」——见 MatchGame.nameFor。
+                add(out, ActionTypes.CHOOSE_MATCH_CARD,
+                        "翻牌 #" + i + " " + clean(spirelink.events.MatchGame.nameFor(card)),
                         payload);
             }
         }

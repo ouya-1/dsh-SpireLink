@@ -147,6 +147,50 @@ public final class MatchGame {
         return digest;
     }
 
+    /**
+     * 0.1.5: 已经翻开过的牌（uuid -> 名字）。翻牌配对本来就是记忆游戏 —— 12 张背面朝上的牌
+     * 在 agent 眼里曾经是一条条写着牌名的动作，配对直接照着念。现在只有翻开过的牌才报名字，
+     * 其余报「背面朝上」。
+     */
+    private static final java.util.Map<String, String> revealed =
+            new java.util.concurrent.ConcurrentHashMap<String, String>();
+    /** The minigame instance the map above belongs to; a new game clears it. */
+    private static Object revealedFor;
+
+    private static void syncReveal() {
+        GremlinMatchGame game = current();
+        if (game != revealedFor) {
+            revealedFor = game;
+            revealed.clear();
+        }
+    }
+
+    /** Records that this card has been turned face up (the agent may now know its name). */
+    public static void claimReveal(AbstractCard card) {
+        if (card == null) {
+            return;
+        }
+        syncReveal();
+        revealed.put(String.valueOf(card.uuid), card.name);
+    }
+
+    /** True once this card has been flipped in the current game. */
+    public static boolean isRevealed(AbstractCard card) {
+        if (card == null) {
+            return false;
+        }
+        syncReveal();
+        return revealed.containsKey(String.valueOf(card.uuid));
+    }
+
+    /** The name an agent may see: the real one after a flip, "背面朝上" before. */
+    public static String nameFor(AbstractCard card) {
+        if (card == null) {
+            return "";
+        }
+        return isRevealed(card) ? card.name : "背面朝上";
+    }
+
     public static JsonObject state() {
         GremlinMatchGame game = current();
         if (game == null) {
@@ -178,8 +222,10 @@ public final class MatchGame {
             }
             JsonObject item = new JsonObject();
             item.addProperty("index", i);
-            item.addProperty("id", card.cardID);
-            item.addProperty("name", card.name);
+            // 背面朝上的牌不报 id / 名字：翻牌配对是记忆游戏，报出来就等于翻开底牌。
+            boolean open = isRevealed(card) || (chosen != null && chosen == card);
+            item.addProperty("id", open ? card.cardID : "");
+            item.addProperty("name", open ? card.name : "背面朝上");
             item.addProperty("matched", matched(card));
             item.addProperty("is_first_pick", chosen != null && chosen == card);
             cards.add(item);

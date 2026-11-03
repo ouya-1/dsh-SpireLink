@@ -2789,7 +2789,8 @@ public final class ActionExecutor {
             }
             String state = spirelink.events.MatchGame.matched(card) ? "（已配对）"
                     : card == chosen ? "（已翻开，待配对）" : "";
-            entries.add(IndexListText.entry(i, LabelText.oneLine(card.name), card.cardID) + state);
+            entries.add(IndexListText.entry(i,
+                    LabelText.oneLine(spirelink.events.MatchGame.nameFor(card)), "") + state);
         }
         return "牌面: " + IndexListText.list(entries, "（牌面还没发出来）");
     }
@@ -2836,6 +2837,8 @@ public final class ActionExecutor {
                     "index=" + index + " 这张牌现在不能翻；" + matchCardRange() + "；"
                             + matchCardSummary());
         }
+        // 0.1.5: 这张牌马上要翻开了，从此它的名字对 agent 可见（记忆游戏的"看一眼"就是这一刻）。
+        spirelink.events.MatchGame.claimReveal(spirelink.events.MatchGame.cards().get(index));
         // The minigame recomputes hover from the real mouse on every frame, so the actual click has to
         // be injected inside GremlinMatchGame.update().
         spirelink.patches.MatchGameClickPatch.request(index);
