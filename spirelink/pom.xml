@@ -6,32 +6,10 @@
 
   <groupId>spirelink</groupId>
   <artifactId>spirelink</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <packaging>jar</packaging>
   <name>SpireLink</name>
-  <description>把《杀戮尖塔》的局面通过 MCP 暴露给 AI agent。</description>
-  <url>https://github.com/ouya-1/dsh-SpireLink</url>
-
-  <licenses>
-    <license>
-      <name>MIT</name>
-      <url>https://opensource.org/licenses/MIT</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <developers>
-    <developer>
-      <id>ouya-1</id>
-      <name>ouya</name>
-      <url>https://github.com/ouya-1</url>
-    </developer>
-  </developers>
-
-  <scm>
-    <url>https://github.com/ouya-1/dsh-SpireLink</url>
-    <connection>scm:git:https://github.com/ouya-1/dsh-SpireLink.git</connection>
-  </scm>
+  <description>Exposes Slay the Spire state over MCP (Streamable HTTP) for AI agents.</description>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
