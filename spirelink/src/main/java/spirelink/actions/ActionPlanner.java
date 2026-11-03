@@ -802,7 +802,14 @@ public final class ActionPlanner {
             allDone = false;
             JsonObject payload = new JsonObject();
             payload.addProperty("index", i);
-            add(out, ActionTypes.TAKE_REWARD, "领取奖励 " + clean(reward.text), payload);
+            String label = "领取奖励 " + clean(reward.text);
+            // 0.1.6: 宝箱里的蓝钥匙和遗物是二选一（RewardItem.renderRelicLink 画的那条锁链），
+            // 拿一个另一个就没了。把这件事写在动作名里，别让 agent 以为可以都拿。
+            RewardItem linked = reward.relicLink;
+            if (linked != null && !linked.isDone && !linked.ignoreReward) {
+                label += "（与「" + clean(linked.text) + "」互斥，只能选一个）";
+            }
+            add(out, ActionTypes.TAKE_REWARD, label, payload);
         }
         if (skippedPotion) {
             // #116a: a skipped potion reward is only half the story. Both the state's blocked_reason

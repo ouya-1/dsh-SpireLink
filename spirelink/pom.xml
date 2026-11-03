@@ -6,7 +6,7 @@
 
   <groupId>spirelink</groupId>
   <artifactId>spirelink</artifactId>
-  <version>0.1.5</version>
+  <version>0.1.6</version>
   <packaging>jar</packaging>
   <name>SpireLink</name>
   <description>Exposes Slay the Spire state over MCP (Streamable HTTP) for AI agents.</description>

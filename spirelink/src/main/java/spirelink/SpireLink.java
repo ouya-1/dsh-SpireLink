@@ -27,7 +27,7 @@ public final class SpireLink implements PostUpdateSubscriber, PreUpdateSubscribe
 
     public static final String MOD_ID = "spirelink";
     public static final String MOD_NAME = "SpireLink";
-    public static final String MOD_VERSION = "0.1.5";
+    public static final String MOD_VERSION = "0.1.6";
 
     private static SpireLink instance;
 

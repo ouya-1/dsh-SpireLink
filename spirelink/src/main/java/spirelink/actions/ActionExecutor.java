@@ -3764,7 +3764,15 @@ public final class ActionExecutor {
     }
 
     /**
-     * #116b: claims a key reward <b>without</b> taking the reward row it is linked to with it.
+     * Claims a key reward. Since 0.1.6 it also cuts the reward row it is linked to, exactly like
+     * vanilla: the sapphire key and the chest's relic are an either/or choice.
+     *
+     * <p>#116b originally claimed the key <b>without</b> taking the linked row, because the vanilla
+     * path made the relic disappear from the reward screen. That is the rule though - {@code
+     * RewardItem.renderRelicLink} draws the chain precisely to say "one or the other" - and letting an
+     * agent take both made every chest strictly better than the real game.</p>
+     *
+     * <p>Old #116b notes follow.</p>
      *
      * <p>Disassembled from {@code RewardItem.claimReward()}: the {@code SAPPHIRE_KEY} branch plays
      * {@code ObtainKeyEffect(BLUE)} and then does {@code relicLink.isDone = true;
@@ -3797,9 +3805,13 @@ public final class ActionExecutor {
             spirelink.util.Diag.warn("take_reward: 钥匙特效加不进去，直接置位: " + t);
         }
         RewardItem link = reward.relicLink;
-        reward.relicLink = null;
-        if (link != null && link.relicLink == reward) {
-            link.relicLink = null;
+        // 0.1.6: 还原原版。RewardItem.claimReward() 的 SAPPHIRE_KEY 分支在播完
+        // ObtainKeyEffect(BLUE) 之后做的就是 relicLink.isDone = true; relicLink.ignoreReward = true;
+        // ——宝箱里的钥匙和遗物是二选一（渲染时那条锁链就是 renderRelicLink）。
+        // 之前 #116b 把链接切断、让两行都能拿，等于比原版多给一个奖励，测试的含金量就打折了。
+        if (sapphire && link != null) {
+            link.isDone = true;
+            link.ignoreReward = true;
         }
         reward.isDone = true;
         spirelink.util.Diag.info("take_reward: " + (sapphire ? "SAPPHIRE_KEY" : "EMERALD_KEY")
