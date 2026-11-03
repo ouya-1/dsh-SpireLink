@@ -38,6 +38,10 @@ final class NoteAnnotator {
             annotateAll(array(combat, "exhaust_pile"), "card", "id", "cardID", "card_id");
             annotateAll(array(combat, "monsters"), "monster", "id", "monster_id", "name");
         }
+        // 0.1.9: 选牌界面和牌堆也要带便签 —— "这张牌我评过"最该出现的两个时刻，
+        // 以前只在手牌/牌堆里查得到，card_reward.cards 与 deck.cards 一直是裸的。
+        annotateAll(array(object(root, "card_reward"), "cards"), "card", "id", "cardID", "card_id");
+        annotateAll(array(object(root, "deck"), "cards"), "card", "id", "cardID", "card_id");
         JsonObject event = object(root, "event");
         if (event != null) {
             addNote(event, "event", stringOf(event, "id"));
