@@ -30,7 +30,23 @@ public final class AscensionRequest {
      * The only levels vanilla's character-select arrows step through — the same six entries
      * {@code legal_actions} advertises. Anything else is not a level the game can actually show.
      */
-    public static final int[] LADDER = {0, 1, 5, 10, 15, 20};
+    public static final int[] LADDER = ladder();
+
+    /**
+     * Every level the game can be set to, {@code 0..20} ({@code 0} = ascension off).
+     *
+     * <p>This used to be {@code {0, 1, 5, 10, 15, 20}} — the six jumps the vanilla UI shows. The
+     * executor does not click arrows, it writes {@code CharacterSelectScreen.ascensionLevel}
+     * directly, so every intermediate level is real, and a playtest asking for A1/A2/A3 cannot run
+     * on a six-step ladder. The per-character cap still filters what {@code legal_actions} offers.
+     */
+    private static int[] ladder() {
+        int[] all = new int[MAX_LEVEL + 1];
+        for (int level = 0; level <= MAX_LEVEL; level++) {
+            all[level] = level;
+        }
+        return all;
+    }
 
     /** Which payload key the level came from, for the error message. */
     public final String key;
@@ -89,13 +105,12 @@ public final class AscensionRequest {
             // ILLEGAL_ACTION, not BAD_REQUEST: 3 is a well-formed number, it is simply not an action
             // the planner ever offers (same code the over-cap case has always used).
             throw new BadRequestException(ErrorCodes.ILLEGAL_ACTION,
-                    "升天等级只能是 " + ladderText() + "（收到 " + value
-                            + "；0 = 关闭升天）—— 原版的档位梯子只有这几档");
+                    "升天等级只能是 " + ladderText() + "（收到 " + value + "；0 = 关闭升天）");
         }
         return new AscensionRequest(key, value);
     }
 
-    /** True when {@code level} is one of the six vanilla ladder steps. */
+    /** True when {@code level} is inside the {@code 0..20} ladder. */
     public static boolean isLadderLevel(int level) {
         for (int step : LADDER) {
             if (step == level) {
@@ -105,8 +120,11 @@ public final class AscensionRequest {
         return false;
     }
 
-    /** "0/1/5/10/15/20", for error messages and the planner's own label choice. */
+    /** "0-20" when the ladder is contiguous, "0/1/5/…" otherwise; error messages and logs only. */
     public static String ladderText() {
+        if (LADDER.length >= 2 && LADDER[LADDER.length - 1] - LADDER[0] == LADDER.length - 1) {
+            return LADDER[0] + "-" + LADDER[LADDER.length - 1];
+        }
         StringBuilder sb = new StringBuilder();
         for (int step : LADDER) {
             if (sb.length() > 0) {

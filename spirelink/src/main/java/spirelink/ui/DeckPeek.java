@@ -266,6 +266,28 @@ public final class DeckPeek {
         closing = false;
         try {
             if (isView(AbstractDungeon.screen)) {
+                // The vanilla view screens dim the game through the "peek" state (the draw pile
+                // especially: DrawPileViewScreen.open() turns PeekButton.isPeeking on, and the dim
+                // layer is drawn off that flag). Flipping AbstractDungeon.screen alone leaves the
+                // grey backdrop stuck on screen - the report "看了抽牌堆后直接出牌，灰底不消失".
+                // Vanilla's own close path (AbstractDungeon.closeCurrentScreen) always does these
+                // three things first, so mirror them here.
+                com.megacrit.cardcrawl.ui.buttons.PeekButton.isPeeking = false;
+                if (AbstractDungeon.overlayMenu != null) {
+                    if (AbstractDungeon.overlayMenu.cancelButton != null) {
+                        AbstractDungeon.overlayMenu.cancelButton.hide();
+                    }
+                    // The view screens dim the game through OverlayMenu's black screen, and hide the
+                    // combat panels while they are up. AbstractDungeon.genericScreenOverlayReset()
+                    // (private, vanilla's close path) does exactly these two things; without them the
+                    // grey veil stays on screen after the peek is gone.
+                    AbstractDungeon.overlayMenu.hideBlackScreen();
+                    if (AbstractDungeon.getCurrRoom() != null
+                            && AbstractDungeon.getCurrRoom().phase
+                                    == com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase.COMBAT) {
+                        AbstractDungeon.overlayMenu.showCombatPanels();
+                    }
+                }
                 AbstractDungeon.screen = savedScreen == null
                         ? AbstractDungeon.CurrentScreen.NONE : savedScreen;
                 AbstractDungeon.isScreenUp = savedScreenUp;

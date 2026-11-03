@@ -8,7 +8,7 @@
 - `ready: false` 表示游戏还在动（动画、过场），此时只读工具会给最后一帧稳定快照，动作类会拒绝。
 - `awaiting` 是闭集 11 个值（`playing` / `char_select` / `dead` / `enemy_turn` / `animating` / `screen_up` / `transition` / `battle_over` / `event_text_typing` / **`loading`（存档正在载入：#121·C12-01 / #122，`continue_run` 或 `embark` 已点、run 屏还没出来）** / `unknown`）：**`ready=true` 不恒为 `playing`**，选人屏是 `char_select`、死亡屏是 `dead`（完整表见 `docs/MCP-返回格式.md` §2.1）。其中 `event_text_typing` 是**历史值**，当前实现不会再返回（打字不压 `ready`，见下面 `event.text_typing`）。
 - `state_version` 只比较大小，不要假设一次动作只 +1（一张牌打出去可能跳好几格）。它**只在决策点/关键状态变化时推进**（换屏、血量/能量、手牌、可动作集合……）；事件正文一个字一个字打出来**不**动版本，所以「版本没动」= 这一拍在决策上和上一拍是同一拍（issue #75）。
-- 当前 `tools/list` 组成：常驻 9 个 `get_state` `legal_actions` `act` `card_info` `glossary` `note_set` `note_get` `notes_list` `event_note`；`meta.test_mode == true` 时再多 10 个 `dev_*`（`dev_event` `dev_encounter` `dev_room` `dev_map` `dev_card` `dev_relic` `dev_potion` `dev_reward` `dev_heal` `dev_use_card`，见「仅测试模式」）。标题带 ⏳ 的是设计里有、这一版还没注册的工具。
+- 当前 `tools/list` 组成：常驻 10 个 `get_state` `legal_actions` `act` `say` `card_info` `glossary` `note_set` `note_get` `notes_list` `event_note`；`meta.test_mode == true` 时再多 10 个 `dev_*`（`dev_event` `dev_encounter` `dev_room` `dev_map` `dev_card` `dev_relic` `dev_potion` `dev_reward` `dev_heal` `dev_use_card`，见「仅测试模式」）。标题带 ⏳ 的是设计里有、这一版还没注册的工具。
 
 ## 逐个说明
 
@@ -90,6 +90,15 @@
 - `act` 交出去后**先等最多 10 秒**（`ACT_STABLE_TIMEOUT_MS`）看版本动没动，才决定回 `applied` 还是 `queued`：所以最坏感知 ≈ 10 + 3 = 13 秒，这个窗口里重发只会换来 `ACTION_IN_FLIGHT`。
 - 不要在返回里期待完整状态；下一拍自己 `get_state`。
 - `act` 回包里**没有** `gaze_cleared` 字段（旧文档提过，实现里没有）；看牌状态只影响 `card_info` 的 `shown`。
+
+### `say`（HUD 思考块）
+
+`say { text, ttl_ms? }` → `{shown, chars, ttl_ms}`。
+
+- 把一行字推到游戏左上角那块淡蓝紫的思考块。**只影响显示**，不改任何游戏状态，不消耗 state_version，也不参与幂等。
+- 一次只显示最新一条，新的覆盖旧的；`ttl_ms` 默认 12000，到期自己消失，想留着就再推。
+- `shown:false` = 这次没画上去（没屏/被限流），换一句再推。
+- 走 MCP 的等同物是 `POST /hud/say`（非 MCP 端点，body 同样是 `{text, ttlMs}`）。
 
 ### `card_info`（内部调试，agent 不需要调用）
 

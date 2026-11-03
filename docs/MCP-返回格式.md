@@ -1854,7 +1854,7 @@ Boss 被打死、还没点「打开地图」的那一拍：`room_phase=COMPLETE`
 }
 ```
 
-顺序固定为：`embark` → 各角色（已选的写「保持」，被锁的角色不出现）→ 升天档位 → `back`。升天档位只列该角色已解锁的常见档（`0/1/5/10/15/20`，`level:0` 表示关闭升天），永远排在 `embark` 之后——它是个可选微调，不是默认动作。
+顺序固定为：`embark` → 各角色（已选的写「保持」，被锁的角色不出现）→ 升天档位 → `back`。升天档位列该角色已解锁的每一档（`0`–`cap` 连续整数，`level:0` 表示关闭升天；2026-11-03 起从原来的 `0/1/5/10/15/20` 六档扩成全档，因为执行器是直接写 `ascensionLevel`，中间档位本来就有效），永远排在 `embark` 之后——它是个可选微调，不是默认动作。
 
 没有任何角色被高亮时是原来的形状：每个未锁角色一条 `choose_character` + `back`，没有 `embark`、没有升天档位。
 
@@ -2223,7 +2223,7 @@ HTTP 状态 → JSON-RPC `error` → `result.isError` → 业务 `ok`。
 | 文件 | 这一份是哪一屏 | 动作条数 |
 |---|---|---|
 | `actions-main_menu.json` | `ui=main_menu`（**有存档**那一版） | 2 = `abandon_run` + `continue_run`（**无存档**时换成 `open_mode_select`，见 §6 `ui=main_menu`） |
-| `actions-char_select.json` | `ui=char_select`（已高亮角色，`actions[0]` 是 `embark`） | 11 = `embark` + 4 张角色卡 + 5 档进阶 + `back` |
+| `actions-char_select.json` | `ui=char_select`（已高亮角色，`actions[0]` 是 `embark`） | `embark` + 4 张角色卡 + 进阶档位（`0` 到该角色上限，逐档一条）+ `back`；2026-11-03 前只有 `0/1/5/10/15/20` 六档，所以这份旧样本里是 11 条 |
 | `actions-map.json` | `ui=map` | 2 = `choose_map_node` + `abandon_mid_run`（有可达节点时**不广告 `proceed`**；地图动作新语义见 §6.2） |
 | `actions-combat.json` | `ui=combat` | 17 = 16 张能打的牌 + `end_turn` |
 | `actions-combat_reward.json` | `ui=combat_reward` | 2 = `take_reward` + `proceed` |

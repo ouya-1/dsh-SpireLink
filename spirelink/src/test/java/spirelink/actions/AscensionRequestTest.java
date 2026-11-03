@@ -49,31 +49,36 @@ public class AscensionRequestTest {
     }
 
     /**
-     * QA round 6 (#100, ascension half): {@code level:3} was applied even though neither the game nor
-     * {@code legal_actions} has that step - an accepted action that is never advertised.
+     * The ladder is the full {@code 0..20} range now: the executor writes
+     * {@code CharacterSelectScreen.ascensionLevel} directly, so A2/A3 are real levels. Only values
+     * outside the range stay illegal.
      */
     @Test
-    public void levelsOffTheLadderAreIllegalAction() {
-        for (String bad : new String[] {"2", "3", "4", "6", "19"}) {
+    public void levelsOutsideZeroToTwentyAreIllegalAction() {
+        for (String good : new String[] {"2", "3", "4", "6", "19"}) {
+            assertEquals(Integer.parseInt(good), AscensionRequest.parse(level(good)).level);
+        }
+        for (String bad : new String[] {"21", "99"}) {
             try {
                 AscensionRequest.parse(level(bad));
                 fail("梯子外的等级要拒: " + bad);
             } catch (BadRequestException e) {
                 assertEquals(ErrorCodes.ILLEGAL_ACTION, e.code);
-                assertTrue("要报出梯子: " + e.getMessage(),
-                        e.getMessage().contains("0/1/5/10/15/20"));
+                // 21 走「超出最高档」分支，报的是 "升天等级最高 20"；两者都要带上限 20
+                assertTrue("要报出上限: " + e.getMessage(), e.getMessage().contains("20"));
             }
         }
     }
 
     @Test
-    public void ladderIsTheDocumentedSixSteps() {
-        assertEquals(6, AscensionRequest.LADDER.length);
-        assertEquals("0/1/5/10/15/20", AscensionRequest.ladderText());
+    public void ladderIsTheFullZeroToTwentyRange() {
+        assertEquals(21, AscensionRequest.LADDER.length);
+        assertEquals("0-20", AscensionRequest.ladderText());
         assertTrue(AscensionRequest.isLadderLevel(0));
+        assertTrue(AscensionRequest.isLadderLevel(3));
         assertTrue(AscensionRequest.isLadderLevel(15));
-        assertFalse(AscensionRequest.isLadderLevel(3));
         assertFalse(AscensionRequest.isLadderLevel(21));
+        assertFalse(AscensionRequest.isLadderLevel(-1));
     }
 
     /** The bug from the issue: a string went straight through. */

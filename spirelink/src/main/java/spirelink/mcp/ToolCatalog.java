@@ -30,6 +30,16 @@ public final class ToolCatalog {
 
     public static final String TOOL_GET_STATE = "get_state";
 
+    /**
+     * The HUD thought channel (issue #28) as a first-class tool.
+     *
+     * <p>Agents that wire the MCP server up as native tools ({@code mcp__spirelink__act}, ...) never
+     * enter a code sandbox, so a plain HTTP endpoint was unreachable for them in practice: the
+     * thought block stayed empty even though the prompt said "say something every step". Exposing
+     * it here keeps "be visible" inside the same tool flow as {@code act}.
+     */
+    public static final String TOOL_SAY = "say";
+
     // Reserved names (design 13), not exposed in P0.
     public static final String TOOL_LEGAL_ACTIONS = "legal_actions";
     public static final String TOOL_ACT = "act";
@@ -123,6 +133,7 @@ public final class ToolCatalog {
         tools.add(getStateDefinition());
         tools.add(legalActionsDefinition());
         tools.add(actDefinition());
+        tools.add(sayDefinition());
         tools.add(cardInfoDefinition());
         tools.add(GlossaryTool.definition());
         tools.add(noteSetDefinition());
@@ -142,6 +153,53 @@ public final class ToolCatalog {
             tools.add(devUseCardDefinition());
         }
         return tools;
+    }
+
+    private JsonObject sayDefinition() {
+        JsonObject tool = new JsonObject();
+        tool.addProperty("name", TOOL_SAY);
+        tool.addProperty("description",
+                "把一行字推到游戏左上角的思考块 —— 人类靠它看见你在想什么。"
+                        + "一次只显示最新一条，新的覆盖旧的；默认 12 秒后自己消失，"
+                        + "想让它留着就再推一次。只影响显示，不改任何游戏状态。");
+
+        JsonObject schema = new JsonObject();
+        schema.addProperty("type", "object");
+        JsonObject properties = new JsonObject();
+        properties.add("text", stringProp("要显示的一行字（中文即可）。"));
+        properties.add("ttl_ms", intProp("这行字停留多少毫秒，默认 12000。"));
+        schema.add("properties", properties);
+        JsonArray required = new JsonArray();
+        required.add("text");
+        schema.add("required", required);
+        tool.add("inputSchema", schema);
+        return tool;
+    }
+
+    /**
+     * {@code say}: not a game action, so it never touches {@code state_version} or idempotency.
+     *
+     * <p>{@link AgentHud#thought(String, long)} is documented as safe from any thread (the HTTP
+     * worker already calls it), so this runs straight off the MCP worker instead of the game queue.
+     */
+    private ToolResult sayHud(JsonObject arguments) {
+        String text = "";
+        if (arguments != null && arguments.has("text") && !arguments.get("text").isJsonNull()) {
+            text = arguments.get("text").getAsString();
+        }
+        if (text.trim().isEmpty()) {
+            return new ToolResult(error("BAD_REQUEST", "say 需要非空的 text", 0), true);
+        }
+        long ttlMs = 0L;
+        if (arguments.has("ttl_ms") && !arguments.get("ttl_ms").isJsonNull()) {
+            ttlMs = arguments.get("ttl_ms").getAsLong();
+        }
+        boolean shown = AgentHud.thought(text, ttlMs);
+        JsonObject payload = new JsonObject();
+        payload.addProperty("shown", shown);
+        payload.addProperty("chars", text.length());
+        payload.addProperty("ttl_ms", ttlMs > 0 ? ttlMs : AgentHud.DEFAULT_THOUGHT_TTL_MS);
+        return new ToolResult(payload, false);
     }
 
     private JsonObject getStateDefinition() {
@@ -258,6 +316,9 @@ public final class ToolCatalog {
 
     /** Routes a tool call to its implementation; {@code null} for an unknown name. */
     private ToolResult dispatch(String name, JsonObject arguments) {
+        if (TOOL_SAY.equals(name)) {
+            return sayHud(arguments);
+        }
         if (TOOL_GET_STATE.equals(name)) {
             return getState(arguments);
         }
