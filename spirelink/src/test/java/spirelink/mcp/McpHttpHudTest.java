@@ -213,7 +213,7 @@ public class McpHttpHudTest {
      *
      * <p>Deliberately independent of {@code test_mode}: the baseline is "whatever this very process
      * would answer without any HUD traffic" ({@link ToolCatalog#listTools()}), not a hard-coded tool
-     * count. 9 base tools are asserted by name because they must exist in every configuration; the
+     * count. 10 base tools are asserted by name because they must exist in every configuration; the
      * 10 {@code dev_*} tools come and go with test_mode and are not this test's business.
      */
     @Test
@@ -221,8 +221,8 @@ public class McpHttpHudTest {
         JsonArray toolsBefore = toolsList();
         assertEquals("tools/list 必须等于同进程 ToolCatalog 的答案",
                 catalog.listTools().toString(), toolsBefore.toString());
-        assertTrue("常驻工具数量应为 9（test_mode 打开时 19）",
-                toolsBefore.size() == 9 || toolsBefore.size() == 19);
+        assertTrue("常驻工具数量应为 10（test_mode 打开时 20；0.1.1 起多了 say）",
+                toolsBefore.size() == 10 || toolsBefore.size() == 20);
 
         call(server, "POST", "/hud/say", "{\"text\":\"我在这里想事情\",\"ttlMs\":8000}",
                 "X-DSH-Session", SESSION);

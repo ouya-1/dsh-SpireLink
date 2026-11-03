@@ -516,10 +516,14 @@ public final class McpHttpServer {
 
         String sessionId = header(exchange, "Mcp-Session-Id");
         if (sessionId != null && !sessions.contains(sessionId)) {
+            // 游戏重启后这一步必然发生：会话表在进程内存里，新进程一个都不认识，
+            // 而客户端还揣着上个进程发的 id。MCP 允许服务端回 404 让客户端重新 initialize，
+            // 但现成的 agent 客户端（含 DSH 的 MCP transport）不重试，于是整局卡在 -32001 上。
+            // 这个 server 本来就不在会话上存任何状态（鉴权靠 token，幂等靠 state_version），
+            // 所以直接认下这个 id 比把活儿推给客户端更划算：重启对 agent 变成无感。
+            sessions.add(sessionId);
+            log.warn("未知会话 Mcp-Session-Id，按新会话接受（多半是游戏重启过）: " + sessionId);
             AgentHud.push(AgentHud.MSG_SESSION_LOST);
-            writeJsonRpcError(exchange, 404, id, -32001,
-                    "未知会话 Mcp-Session-Id，请重新 initialize");
-            return;
         }
         if (sessionId != null) {
             exchange.getResponseHeaders().set("Mcp-Session-Id", sessionId);
