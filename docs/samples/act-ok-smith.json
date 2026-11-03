@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 131,
+  "error": null,
+  "action": {
+    "type": "smith",
+    "payload": {}
+  },
+  "ui": "grid",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "choose_grid_cards",
+      "label": "打击",
+      "payload": {
+        "uuid": "8d533a84-8575-4383-9314-6d9b2ffcb1e4"
+      }
+    },
+    {
+      "id": "a2",
+      "type": "choose_grid_cards",
+      "label": "防御",
+      "payload": {
+        "uuid": "26f12375-036a-443c-9e02-d985f4e6db49"
+      }
+    },
+    {
+      "id": "a3",
+      "type": "choose_grid_cards",
+      "label": "防御",
+      "payload": {
+        "uuid": "2591e7c4-05a1-475d-b1c6-33b6763f5f07"
+      }
+    },
+    {
+      "id": "a4",
+      "type": "choose_grid_cards",
+      "label": "防御",
+      "payload": {
+        "uuid": "21e1921d-d602-4f7c-9c6f-8185db56b709"
+      }
+    },
+    {
+      "id": "a5",
+      "type": "choose_grid_cards",
+      "label": "防御",
+      "payload": {
+        "uuid": "57350391-d9e5-4840-b8d4-9e91b6f833a0"
+      }
+    },
+    {
+      "id": "a6",
+      "type": "choose_grid_cards",
+      "label": "电击",
+      "payload": {
+        "uuid": "55d252a5-e6a6-4dac-8fb5-6b3a8655dd3d"
+      }
+    },
+    {
+      "id": "a7",
+      "type": "choose_grid_cards",
+      "label": "冷静头脑",
+      "payload": {
+        "uuid": "e6167c4b-60af-436d-b9e0-ecc783704a09"
+      }
+    },
+    {
+      "id": "a8",
+      "type": "choose_grid_cards",
+      "label": "暴雪",
+      "payload": {
+        "uuid": "73b5b488-907a-4a5a-963e-2512afcbad54"
+      }
+    },
+    {
+      "id": "a9",
+      "type": "choose_grid_cards",
+      "label": "精简改良",
+      "payload": {
+        "uuid": "c73c700d-3771-491d-a5e4-ff46b6b6b0f3"
+      }
+    },
+    {
+      "id": "a10",
+      "type": "choose_grid_cards",
+      "label": "弹幕齐射",
+      "payload": {
+        "uuid": "186ab896-718f-4d80-a191-8bac93a3d658"
+      }
+    },
+    {
+      "id": "a11",
+      "type": "choose_grid_cards",
+      "label": "弹回",
+      "payload": {
+        "uuid": "2c0a0ca2-b470-4381-a132-0793f2af01d7"
+      }
+    },
+    {
+      "id": "a12",
+      "type": "choose_grid_cards",
+      "label": "寒流",
+      "payload": {
+        "uuid": "0a85b853-a029-4cb9-b024-865ffaa8297a"
+      }
+    },
+    {
+      "id": "a13",
+      "type": "choose_grid_cards",
+      "label": "球状闪电",
+      "payload": {
+        "uuid": "60a09f30-bf54-4198-bc8e-42a94009edbe"
+      }
+    },
+    {
+      "id": "a14",
+      "type": "choose_grid_cards",
+      "label": "分离",
+      "payload": {
+        "uuid": "d8195a50-30ea-429a-8fcd-0c05b2536301"
+      }
+    },
+    {
+      "id": "a15",
+      "type": "choose_grid_cards",
+      "label": "爪击",
+      "payload": {
+        "uuid": "0a19a2f2-05d7-4ed2-962d-b1d6d3c5b3e3"
+      }
+    },
+    {
+      "id": "a16",
+      "type": "choose_grid_cards",
+      "label": "J.A.X.",
+      "payload": {
+        "uuid": "71ab79cc-4d57-460f-bbd5-c800341718ce"
+      }
+    },
+    {
+      "id": "a17",
+      "type": "cancel_grid",
+      "label": "取消",
+      "payload": {}
+    }
+  ]
+}

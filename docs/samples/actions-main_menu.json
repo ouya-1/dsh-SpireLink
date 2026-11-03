@@ -1,0 +1,21 @@
+{
+  "ready": true,
+  "state_version": 1,
+  "screen_type": "NONE",
+  "ui": "main_menu",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "abandon_run",
+      "label": "放弃存档（回到新局）",
+      "payload": {}
+    },
+    {
+      "id": "a2",
+      "type": "continue_run",
+      "label": "继续上次的一局",
+      "payload": {}
+    }
+  ]
+}

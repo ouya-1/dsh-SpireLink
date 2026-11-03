@@ -1,0 +1,562 @@
+{
+  "ok": true,
+  "ready": true,
+  "state_version": 11,
+  "error": null,
+  "meta": {
+    "ready": true,
+    "test_mode": true,
+    "speed": 1.0,
+    "awaiting": "playing",
+    "state_version": 11,
+    "in_game": true,
+    "seed": "4ZB0YVRHMY5A8",
+    "seed_raw": -1616770379121713383,
+    "character": "IRONCLAD",
+    "character_source": "player",
+    "ascension": 0,
+    "act": 1,
+    "floor": 0,
+    "screen_type": "NONE",
+    "room_phase": "COMBAT",
+    "room_type": "MonsterRoom",
+    "room_cleared": false,
+    "render_crashed": false,
+    "ui": "combat",
+    "ui_group": "combat",
+    "suggest_include": [],
+    "mod_version": "0.1.0",
+    "language": "ZHS"
+  },
+  "player": {
+    "current_hp": 999,
+    "hp": 999,
+    "max_hp": 999,
+    "block": 0,
+    "energy": 3,
+    "energy_max": 3,
+    "gold": 99,
+    "stance": null,
+    "orbs": [],
+    "orb_slots": 0,
+    "orbs_filled": 0,
+    "orb_evoke_next": -1,
+    "focus": 0,
+    "potions": [],
+    "powers": [],
+    "relics": [
+      {
+        "id": "Burning Blood",
+        "name": "燃烧之血",
+        "text": "在战斗结束时，回复 #b6 点生命。",
+        "note": null
+      },
+      {
+        "id": "NeowsBlessing",
+        "name": "涅奥的悲恸",
+        "text": "这个祝福已经耗尽。",
+        "note": null
+      }
+    ]
+  },
+  "potions": {
+    "slot_count": 3,
+    "slots": [
+      {
+        "slot": 0,
+        "empty": true
+      },
+      {
+        "slot": 1,
+        "empty": true
+      },
+      {
+        "slot": 2,
+        "empty": true
+      }
+    ]
+  },
+  "combat": {
+    "round": 1,
+    "turn": 1,
+    "hand": [
+      {
+        "uuid": "1afe1e37-3d77-43ef-9816-08651f15c255",
+        "id": "Strike_R",
+        "name": "打击",
+        "text": "造成 6 点伤害。",
+        "type": "ATTACK",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "ENEMY",
+        "has_target": true,
+        "is_playable": true,
+        "damage": 6,
+        "block": 0,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 0,
+        "note": null
+      },
+      {
+        "uuid": "970d8ddd-cb72-445f-a6bb-c8e8bcf72f08",
+        "id": "Defend_R",
+        "name": "防御",
+        "text": "获得 5 点 【格挡】 。",
+        "keywords": [
+          "格挡"
+        ],
+        "type": "SKILL",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "SELF",
+        "has_target": false,
+        "is_playable": true,
+        "damage": 0,
+        "block": 5,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 1,
+        "note": null
+      },
+      {
+        "uuid": "ea98195b-2609-4acf-abd0-3a9a9ed833b5",
+        "id": "Strike_R",
+        "name": "打击",
+        "text": "造成 6 点伤害。",
+        "type": "ATTACK",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "ENEMY",
+        "has_target": true,
+        "is_playable": true,
+        "damage": 6,
+        "block": 0,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 2,
+        "note": null
+      },
+      {
+        "uuid": "63616094-399d-42d5-820f-8315ec9a1fd2",
+        "id": "Defend_R",
+        "name": "防御",
+        "text": "获得 5 点 【格挡】 。",
+        "keywords": [
+          "格挡"
+        ],
+        "type": "SKILL",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "SELF",
+        "has_target": false,
+        "is_playable": true,
+        "damage": 0,
+        "block": 5,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 3,
+        "note": null
+      },
+      {
+        "uuid": "595ea04c-4135-4280-9709-28071e89751f",
+        "id": "Strike_R",
+        "name": "打击",
+        "text": "造成 6 点伤害。",
+        "type": "ATTACK",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "ENEMY",
+        "has_target": true,
+        "is_playable": true,
+        "damage": 6,
+        "block": 0,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 4,
+        "note": null
+      },
+      {
+        "uuid": "b4bf9d6f-94ad-4c38-921d-bf49d549ee24",
+        "id": "Strike_R",
+        "name": "打击",
+        "text": "造成 6 点伤害。",
+        "type": "ATTACK",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "ENEMY",
+        "has_target": true,
+        "is_playable": true,
+        "damage": 6,
+        "block": 0,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 5,
+        "note": null
+      },
+      {
+        "uuid": "a59c330c-9f47-407c-a0ef-dfc05983059f",
+        "id": "Defend_R",
+        "name": "防御",
+        "text": "获得 5 点 【格挡】 。",
+        "keywords": [
+          "格挡"
+        ],
+        "type": "SKILL",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "SELF",
+        "has_target": false,
+        "is_playable": true,
+        "damage": 0,
+        "block": 5,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 6,
+        "note": null
+      },
+      {
+        "uuid": "96933f54-728c-469d-bfaa-dbda018b15bc",
+        "id": "Strike_R",
+        "name": "打击",
+        "text": "造成 6 点伤害。",
+        "type": "ATTACK",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "ENEMY",
+        "has_target": true,
+        "is_playable": true,
+        "damage": 6,
+        "block": 0,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 7,
+        "note": null
+      },
+      {
+        "uuid": "93dcf676-2070-4336-925a-991eb0f88a70",
+        "id": "Bash",
+        "name": "痛击",
+        "text": "造成 8 点伤害。 NL 给予 2 层 【易伤】 。",
+        "keywords": [
+          "易伤"
+        ],
+        "type": "ATTACK",
+        "rarity": "BASIC",
+        "cost": 2,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "ENEMY",
+        "has_target": true,
+        "is_playable": true,
+        "damage": 8,
+        "block": 0,
+        "magic_number": 2,
+        "needs_inspect": false,
+        "index": 8,
+        "note": "示例便签：先用痛击上易伤。"
+      },
+      {
+        "uuid": "909a1af3-aefb-40d3-ae48-30c0b3fd8701",
+        "id": "Defend_R",
+        "name": "防御",
+        "text": "获得 5 点 【格挡】 。",
+        "keywords": [
+          "格挡"
+        ],
+        "type": "SKILL",
+        "rarity": "BASIC",
+        "cost": 1,
+        "upgrades": 0,
+        "ethereal": false,
+        "exhausts": false,
+        "retain": false,
+        "target": "SELF",
+        "has_target": false,
+        "is_playable": true,
+        "damage": 0,
+        "block": 5,
+        "magic_number": -1,
+        "needs_inspect": false,
+        "index": 9,
+        "note": null
+      }
+    ],
+    "piles": {
+      "draw": {
+        "count": 0,
+        "cards": []
+      },
+      "discard": {
+        "count": 0,
+        "cards": []
+      },
+      "exhaust": {
+        "count": 0,
+        "cards": []
+      },
+      "limbo": {
+        "count": 0,
+        "cards": []
+      }
+    },
+    "piles_summary": {
+      "draw": 0,
+      "discard": 0,
+      "exhaust": 0
+    },
+    "monsters": [
+      {
+        "index": 0,
+        "id": "FuzzyLouseDefensive",
+        "name": "虱虫",
+        "current_hp": 1,
+        "hp": 1,
+        "max_hp": 13,
+        "block": 0,
+        "is_gone": false,
+        "half_dead": false,
+        "intent": {
+          "id": "ATTACK",
+          "has_damage": true,
+          "damage": 6,
+          "hits": 1,
+          "total_damage": 6,
+          "base_damage": 6
+        },
+        "powers": [
+          {
+            "id": "Curl Up",
+            "name": "蜷身",
+            "amount": 3,
+            "stack": 3,
+            "kind": "buff",
+            "term": "蜷身",
+            "text": "当受到攻击伤害时，蜷起身子并获得 3 点【格挡】。（每场战斗一次）",
+            "keywords": [
+              "格挡"
+            ]
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "id": "FuzzyLouseNormal",
+        "name": "虱虫",
+        "current_hp": 1,
+        "hp": 1,
+        "max_hp": 13,
+        "block": 0,
+        "is_gone": false,
+        "half_dead": false,
+        "intent": {
+          "id": "ATTACK",
+          "has_damage": true,
+          "damage": 7,
+          "hits": 1,
+          "total_damage": 7,
+          "base_damage": 7
+        },
+        "powers": [
+          {
+            "id": "Curl Up",
+            "name": "蜷身",
+            "amount": 5,
+            "stack": 5,
+            "kind": "buff",
+            "term": "蜷身",
+            "text": "当受到攻击伤害时，蜷起身子并获得 5 点【格挡】。（每场战斗一次）",
+            "keywords": [
+              "格挡"
+            ]
+          }
+        ]
+      }
+    ],
+    "enemies": [
+      {
+        "index": 0,
+        "id": "FuzzyLouseDefensive",
+        "name": "虱虫",
+        "current_hp": 1,
+        "hp": 1,
+        "max_hp": 13,
+        "block": 0,
+        "is_gone": false,
+        "half_dead": false,
+        "intent": {
+          "id": "ATTACK",
+          "has_damage": true,
+          "damage": 6,
+          "hits": 1,
+          "total_damage": 6,
+          "base_damage": 6
+        },
+        "powers": [
+          {
+            "id": "Curl Up",
+            "name": "蜷身",
+            "amount": 3,
+            "stack": 3,
+            "kind": "buff",
+            "term": "蜷身",
+            "text": "当受到攻击伤害时，蜷起身子并获得 3 点【格挡】。（每场战斗一次）",
+            "keywords": [
+              "格挡"
+            ]
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "id": "FuzzyLouseNormal",
+        "name": "虱虫",
+        "current_hp": 1,
+        "hp": 1,
+        "max_hp": 13,
+        "block": 0,
+        "is_gone": false,
+        "half_dead": false,
+        "intent": {
+          "id": "ATTACK",
+          "has_damage": true,
+          "damage": 7,
+          "hits": 1,
+          "total_damage": 7,
+          "base_damage": 7
+        },
+        "powers": [
+          {
+            "id": "Curl Up",
+            "name": "蜷身",
+            "amount": 5,
+            "stack": 5,
+            "kind": "buff",
+            "term": "蜷身",
+            "text": "当受到攻击伤害时，蜷起身子并获得 5 点【格挡】。（每场战斗一次）",
+            "keywords": [
+              "格挡"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "memory": {
+    "context_notes": [],
+    "recent_notes": [],
+    "counts": {
+      "general": 17,
+      "monster": 18,
+      "card": 4,
+      "event": 7,
+      "potion": 8,
+      "relic": 1
+    },
+    "total": 55,
+    "notes_omitted_this_run": 190,
+    "run_history": [
+      {
+        "run": 39,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 6,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793628093
+      },
+      {
+        "run": 40,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 11,
+        "result": "death",
+        "killed_by": "尖刺史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）",
+        "hp": 0,
+        "deck_size": 11,
+        "notes": 55,
+        "finished_at": 1793628727
+      },
+      {
+        "run": 41,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 12,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793630156
+      },
+      {
+        "run": 42,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 8,
+        "result": "death",
+        "killed_by": "火大地精, 卑鄙地精, 地精法师, 火大地精",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793631097
+      },
+      {
+        "run": 43,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 1,
+        "result": "death",
+        "killed_by": "大颚虫",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793639444
+      }
+    ],
+    "run_history_count": 43
+  },
+  "hints": {
+    "frames": 35441,
+    "beats": 35441,
+    "ms_since_frame": 0,
+    "ms_since_beat": 0
+  }
+}

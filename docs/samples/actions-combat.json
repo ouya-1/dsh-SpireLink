@@ -1,0 +1,155 @@
+{
+  "ready": true,
+  "state_version": 11,
+  "screen_type": "NONE",
+  "ui": "combat",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "play_card",
+      "label": "出牌 打击 → 第1只(虱虫)",
+      "payload": {
+        "uuid": "1afe1e37-3d77-43ef-9816-08651f15c255",
+        "target_index": 0
+      }
+    },
+    {
+      "id": "a2",
+      "type": "play_card",
+      "label": "出牌 打击 → 第2只(虱虫)",
+      "payload": {
+        "uuid": "1afe1e37-3d77-43ef-9816-08651f15c255",
+        "target_index": 1
+      }
+    },
+    {
+      "id": "a3",
+      "type": "play_card",
+      "label": "出牌 防御",
+      "payload": {
+        "uuid": "970d8ddd-cb72-445f-a6bb-c8e8bcf72f08"
+      }
+    },
+    {
+      "id": "a4",
+      "type": "play_card",
+      "label": "出牌 打击 → 第1只(虱虫)",
+      "payload": {
+        "uuid": "ea98195b-2609-4acf-abd0-3a9a9ed833b5",
+        "target_index": 0
+      }
+    },
+    {
+      "id": "a5",
+      "type": "play_card",
+      "label": "出牌 打击 → 第2只(虱虫)",
+      "payload": {
+        "uuid": "ea98195b-2609-4acf-abd0-3a9a9ed833b5",
+        "target_index": 1
+      }
+    },
+    {
+      "id": "a6",
+      "type": "play_card",
+      "label": "出牌 防御",
+      "payload": {
+        "uuid": "63616094-399d-42d5-820f-8315ec9a1fd2"
+      }
+    },
+    {
+      "id": "a7",
+      "type": "play_card",
+      "label": "出牌 打击 → 第1只(虱虫)",
+      "payload": {
+        "uuid": "595ea04c-4135-4280-9709-28071e89751f",
+        "target_index": 0
+      }
+    },
+    {
+      "id": "a8",
+      "type": "play_card",
+      "label": "出牌 打击 → 第2只(虱虫)",
+      "payload": {
+        "uuid": "595ea04c-4135-4280-9709-28071e89751f",
+        "target_index": 1
+      }
+    },
+    {
+      "id": "a9",
+      "type": "play_card",
+      "label": "出牌 打击 → 第1只(虱虫)",
+      "payload": {
+        "uuid": "b4bf9d6f-94ad-4c38-921d-bf49d549ee24",
+        "target_index": 0
+      }
+    },
+    {
+      "id": "a10",
+      "type": "play_card",
+      "label": "出牌 打击 → 第2只(虱虫)",
+      "payload": {
+        "uuid": "b4bf9d6f-94ad-4c38-921d-bf49d549ee24",
+        "target_index": 1
+      }
+    },
+    {
+      "id": "a11",
+      "type": "play_card",
+      "label": "出牌 防御",
+      "payload": {
+        "uuid": "a59c330c-9f47-407c-a0ef-dfc05983059f"
+      }
+    },
+    {
+      "id": "a12",
+      "type": "play_card",
+      "label": "出牌 打击 → 第1只(虱虫)",
+      "payload": {
+        "uuid": "96933f54-728c-469d-bfaa-dbda018b15bc",
+        "target_index": 0
+      }
+    },
+    {
+      "id": "a13",
+      "type": "play_card",
+      "label": "出牌 打击 → 第2只(虱虫)",
+      "payload": {
+        "uuid": "96933f54-728c-469d-bfaa-dbda018b15bc",
+        "target_index": 1
+      }
+    },
+    {
+      "id": "a14",
+      "type": "play_card",
+      "label": "出牌 痛击 → 第1只(虱虫)",
+      "payload": {
+        "uuid": "93dcf676-2070-4336-925a-991eb0f88a70",
+        "target_index": 0
+      }
+    },
+    {
+      "id": "a15",
+      "type": "play_card",
+      "label": "出牌 痛击 → 第2只(虱虫)",
+      "payload": {
+        "uuid": "93dcf676-2070-4336-925a-991eb0f88a70",
+        "target_index": 1
+      }
+    },
+    {
+      "id": "a16",
+      "type": "play_card",
+      "label": "出牌 防御",
+      "payload": {
+        "uuid": "909a1af3-aefb-40d3-ae48-30c0b3fd8701"
+      }
+    },
+    {
+      "id": "a17",
+      "type": "end_turn",
+      "label": "结束回合",
+      "payload": {}
+    }
+  ]
+}

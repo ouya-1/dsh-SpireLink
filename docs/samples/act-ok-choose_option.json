@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 85,
+  "error": null,
+  "action": {
+    "type": "choose_option",
+    "payload": {
+      "index": 0
+    }
+  },
+  "ui": "event",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "choose_option",
+      "label": "离开",
+      "payload": {
+        "index": 0
+      }
+    }
+  ]
+}

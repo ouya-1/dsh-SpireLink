@@ -1,0 +1,87 @@
+{
+  "ready": true,
+  "state_version": 25,
+  "screen_type": "SHOP",
+  "ui": "shop",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "buy",
+      "label": "买卡 爪击（50 金）",
+      "payload": {
+        "kind": "card",
+        "index": 0
+      }
+    },
+    {
+      "id": "a2",
+      "type": "buy",
+      "label": "买卡 精简改良（53 金）",
+      "payload": {
+        "kind": "card",
+        "index": 1
+      }
+    },
+    {
+      "id": "a3",
+      "type": "buy",
+      "label": "买卡 充电（45 金）",
+      "payload": {
+        "kind": "card",
+        "index": 2
+      }
+    },
+    {
+      "id": "a4",
+      "type": "buy",
+      "label": "买卡 蒸汽护壁（49 金）",
+      "payload": {
+        "kind": "card",
+        "index": 3
+      }
+    },
+    {
+      "id": "a5",
+      "type": "buy",
+      "label": "买卡 雷暴（39 金）",
+      "payload": {
+        "kind": "card",
+        "index": 4
+      }
+    },
+    {
+      "id": "a6",
+      "type": "buy",
+      "label": "买药水 复制药水（73 金）",
+      "payload": {
+        "kind": "potion",
+        "index": 0
+      }
+    },
+    {
+      "id": "a7",
+      "type": "buy",
+      "label": "买药水 类固醇药水（50 金）",
+      "payload": {
+        "kind": "potion",
+        "index": 1
+      }
+    },
+    {
+      "id": "a8",
+      "type": "buy",
+      "label": "买药水 能力药水（49 金）",
+      "payload": {
+        "kind": "potion",
+        "index": 2
+      }
+    },
+    {
+      "id": "a9",
+      "type": "leave",
+      "label": "离开商店",
+      "payload": {}
+    }
+  ]
+}

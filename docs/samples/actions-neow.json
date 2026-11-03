@@ -1,0 +1,23 @@
+{
+  "ready": true,
+  "state_version": 44,
+  "screen_type": "NONE",
+  "ui": "neow",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "choose_neow_reward",
+      "label": "选项：对话",
+      "payload": {
+        "index": 0
+      }
+    },
+    {
+      "id": "a2",
+      "type": "proceed",
+      "label": "继续",
+      "payload": {}
+    }
+  ]
+}

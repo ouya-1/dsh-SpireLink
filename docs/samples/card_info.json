@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "uuid": "cb079bca-2846-4af5-98f8-9edb3bc331c5",
+  "id": "Defend_B",
+  "name": "防御",
+  "type": "SKILL",
+  "cost": 1,
+  "rarity": "BASIC",
+  "raw_text": "获得 !B! 点 格挡 。",
+  "description": "获得 5 点 格挡 。",
+  "keywords": [
+    "格挡"
+  ],
+  "shown": true,
+  "note": null
+}

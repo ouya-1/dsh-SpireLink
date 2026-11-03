@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 42,
+  "error": null,
+  "action": {
+    "type": "leave",
+    "payload": {}
+  },
+  "ui": "map",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "choose_map_node",
+      "label": "前往 第4行 · 怪物（左2）",
+      "payload": {
+        "x": 1,
+        "y": 3,
+        "room": "怪物",
+        "column": 1,
+        "column_label": "左2",
+        "row": 4
+      }
+    },
+    {
+      "id": "a2",
+      "type": "abandon_mid_run",
+      "label": "放弃本局（回主菜单）",
+      "payload": {}
+    }
+  ]
+}

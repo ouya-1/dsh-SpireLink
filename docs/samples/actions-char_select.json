@@ -1,0 +1,107 @@
+{
+  "ready": true,
+  "state_version": 10,
+  "screen_type": "NONE",
+  "ui": "char_select",
+  "awaiting": "char_select",
+  "hints": {
+    "keywords_unseen": [],
+    "needs_inspect": [],
+    "act_seq": 9,
+    "last_error_seq": 0,
+    "screen": "NONE",
+    "gam_phase": "WAITING_ON_USER",
+    "frames": 9615,
+    "end_turn_enabled": false,
+    "monsters_basically_dead": false,
+    "char_selected": "IRONCLAD",
+    "next": "embark"
+  },
+  "actions": [
+    {
+      "id": "a1",
+      "type": "embark",
+      "label": "启程",
+      "payload": {}
+    },
+    {
+      "id": "a2",
+      "type": "choose_character",
+      "label": "保持 铁甲战士",
+      "payload": {
+        "character": "IRONCLAD",
+        "selected": true
+      }
+    },
+    {
+      "id": "a3",
+      "type": "choose_character",
+      "label": "选择静默猎手",
+      "payload": {
+        "character": "THE_SILENT"
+      }
+    },
+    {
+      "id": "a4",
+      "type": "choose_character",
+      "label": "选择故障机器人",
+      "payload": {
+        "character": "DEFECT"
+      }
+    },
+    {
+      "id": "a5",
+      "type": "choose_character",
+      "label": "选择观者",
+      "payload": {
+        "character": "WATCHER"
+      }
+    },
+    {
+      "id": "a6",
+      "type": "choose_ascension",
+      "label": "升天 1",
+      "payload": {
+        "level": 1
+      }
+    },
+    {
+      "id": "a7",
+      "type": "choose_ascension",
+      "label": "升天 5",
+      "payload": {
+        "level": 5
+      }
+    },
+    {
+      "id": "a8",
+      "type": "choose_ascension",
+      "label": "升天 10",
+      "payload": {
+        "level": 10
+      }
+    },
+    {
+      "id": "a9",
+      "type": "choose_ascension",
+      "label": "升天 15",
+      "payload": {
+        "level": 15
+      }
+    },
+    {
+      "id": "a10",
+      "type": "choose_ascension",
+      "label": "升天 20",
+      "payload": {
+        "level": 20
+      }
+    },
+    {
+      "id": "a11",
+      "type": "back",
+      "label": "返回主菜单",
+      "payload": {}
+    }
+  ]
+}

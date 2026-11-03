@@ -1,0 +1,10 @@
+{
+  "modid": "spirelink",
+  "name": "SpireLink",
+  "author_list": ["SpireLink contributors", "ifree (MCPTheSpire, MIT)"],
+  "description": "Exposes Slay the Spire state over the Model Context Protocol (Streamable HTTP) so an AI agent can read the game. P0: get_state only.",
+  "version": "0.1.0",
+  "sts_version": "12-18-2022",
+  "mts_version": "3.30.3",
+  "dependencies": ["basemod"]
+}

@@ -1,0 +1,281 @@
+{
+  "ok": true,
+  "ready": true,
+  "state_version": 1,
+  "error": null,
+  "meta": {
+    "ready": true,
+    "test_mode": false,
+    "speed": 1.0,
+    "awaiting": "playing",
+    "state_version": 1,
+    "in_game": false,
+    "seed": null,
+    "seed_raw": null,
+    "character": null,
+    "ascension": 0,
+    "act": 0,
+    "floor": 0,
+    "screen_type": "NONE",
+    "room_phase": null,
+    "room_type": null,
+    "render_crashed": false,
+    "ui": "main_menu",
+    "ui_group": "main_menu",
+    "suggest_include": [],
+    "mod_version": "0.1.0",
+    "language": "ZHS"
+  },
+  "player": {},
+  "potions": {
+    "slot_count": 0,
+    "slots": []
+  },
+  "memory": {
+    "context_notes": [],
+    "recent_notes": [
+      {
+        "kind": "general",
+        "id": "hud-notes-map",
+        "text": "地图这一张是给 issue #4 的第二张证据：右上角笔记行最多三行、每行二十六字，超出才省略号，正文在 note_get 里必须一字不差。",
+        "updated_at": 1793566805
+      },
+      {
+        "kind": "general",
+        "id": "hud-notes-combat",
+        "text": "这条便签用来验证右上角笔记行：长文本自动折行成三行以内，每行约二十六个汉字，超出才省略号，正文在 note_get 里必须完整。",
+        "updated_at": 1793551843
+      },
+      {
+        "kind": "general",
+        "id": "hud-notes-proof",
+        "text": "这条便签用来验证右上角笔记行：长文本自动折行成三行以内，每行约二十六个汉字，超出才省略号，正文在 note_get 里必须完整。",
+        "updated_at": 1793551774
+      },
+      {
+        "kind": "general",
+        "id": "hud-short",
+        "text": "短笔记测试",
+        "updated_at": 1793551597
+      },
+      {
+        "kind": "monster",
+        "id": "JawWorm",
+        "text": "大颚虫起手会先加力量，然后连续咬人，血少的时候会怂一下回血",
+        "updated_at": 1793530771
+      },
+      {
+        "kind": "general",
+        "id": "hud-layout-test",
+        "text": "地精大块头会先加力量再用重击，看到它抬手就要留格挡牌，别贪输出",
+        "updated_at": 1793530687
+      },
+      {
+        "kind": "monster",
+        "id": "hexaghost-pattern",
+        "text": "六火亡魂(第一幕Boss,250血)打法：T1它只激活不出手；之后循环 分裂(6x伤害按你当前血量算) → 灼热(塞2张灼伤+) → 横扫 → 双重5x2。核心威胁是灼伤+卡手：3张灼伤+在手上每回合打你12点，把好牌挤掉。对策：1)缴械(-2力量)大幅削它多段攻击；2)金属化+多层护甲堆被动格挡；3)趁它DEFEND_BUFF的回合全力输出。这局我17/83险胜，靠的是第11回合三个灼伤+卡手时堆够格挡活下来。",
+        "updated_at": 1793525879
+      },
+      {
+        "kind": "general",
+        "id": "act1-boss-first-clear",
+        "text": "第一次打过第一幕Boss(六火亡魂250血→我17/83)。关键配置：金属化(被动格挡)+全身撞击(格挡转伤害)+放血(0费2能量)+狂宴(斩杀+3上限)+缴械(削力量)。钱攒到363金但没商店花。结论：过Boss靠的是「被动格挡引擎+费用牌」，不是爆发伤害。",
+        "updated_at": 1793525879
+      }
+    ],
+    "counts": {
+      "event": 7,
+      "potion": 8,
+      "card": 4,
+      "monster": 18,
+      "relic": 1,
+      "general": 17
+    },
+    "run_history": [
+      {
+        "run": 38,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 1,
+        "result": "death",
+        "killed_by": "邪教徒",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793627297
+      },
+      {
+        "run": 39,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 6,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793628093
+      },
+      {
+        "run": 40,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 11,
+        "result": "death",
+        "killed_by": "尖刺史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）",
+        "hp": 0,
+        "deck_size": 11,
+        "notes": 55,
+        "finished_at": 1793628727
+      },
+      {
+        "run": 41,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 12,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793630156
+      },
+      {
+        "run": 42,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 8,
+        "result": "death",
+        "killed_by": "火大地精, 卑鄙地精, 地精法师, 火大地精",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793631097
+      }
+    ],
+    "briefing": {
+      "notes_total": 55,
+      "notes_by_kind": {
+        "event": 7,
+        "potion": 8,
+        "card": 4,
+        "monster": 18,
+        "relic": 1,
+        "general": 17
+      },
+      "recent_runs": [
+        {
+          "run": 42,
+          "character": "IRONCLAD",
+          "act": 1,
+          "floor": 8,
+          "result": "death",
+          "killed_by": "火大地精, 卑鄙地精, 地精法师, 火大地精"
+        },
+        {
+          "run": 41,
+          "character": "IRONCLAD",
+          "act": 1,
+          "floor": 12,
+          "result": "death",
+          "killed_by": "乐加维林"
+        },
+        {
+          "run": 40,
+          "character": "IRONCLAD",
+          "act": 1,
+          "floor": 11,
+          "result": "death",
+          "killed_by": "尖刺史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）"
+        },
+        {
+          "run": 39,
+          "character": "IRONCLAD",
+          "act": 1,
+          "floor": 6,
+          "result": "death",
+          "killed_by": "乐加维林"
+        },
+        {
+          "run": 38,
+          "character": "IRONCLAD",
+          "act": 1,
+          "floor": 1,
+          "result": "death",
+          "killed_by": "邪教徒"
+        }
+      ],
+      "general_notes": [
+        {
+          "id": "spirelink-note-test-20261101",
+          "text": "通用便签：本局走力量流"
+        },
+        {
+          "id": "run5-start",
+          "text": "第5轮 真实难度：80血铁甲，先稳后贪"
+        },
+        {
+          "id": "run5-hp",
+          "text": "进精英前先休息回血，别硬上"
+        },
+        {
+          "id": "run5-boss",
+          "text": "Boss前：休息回满，留虚弱药水"
+        },
+        {
+          "id": "run5-deathwatch",
+          "text": "史莱姆分裂后4只合击31，手里没格挡"
+        },
+        {
+          "id": "run5-dead1",
+          "text": "第1局死于史莱姆分裂：4只合击31"
+        },
+        {
+          "id": "run6-start",
+          "text": "第3局：涅奥拿3瓶药水，稳着打"
+        },
+        {
+          "id": "run1-start",
+          "text": "第1局(RUN真实)。路线x2: M ? $ E R ? T E M M M M R；2精英都在休息前，很顺"
+        },
+        {
+          "id": "build-barricade",
+          "text": "本局(4JWW4LUB8JUSH)走壁垒流：针线(4板甲)+金属化(3)+壁垒(格挡不消失)。看到全身撞击/Body Slam 必拿——伤害=格挡值，配合壁垒可以无限叠。"
+        },
+        {
+          "id": "grid-bug-rest",
+          "text": "grid 选牌网格 bug 期间：休息点的「锻造升级」不能用（会弹选牌网格卡死），只能休息；头槌/战吼/坚毅/燃烧契约这类要选牌的战技也别拿。这等于整局不能升级牌。"
+        },
+        {
+          "id": "shop-metallicize-vs-uppercut",
+          "text": "商店取舍：金属化(76) vs 上勾拳(36)+药水。铁甲小牌组优先金属化——每回合+3格挡是免操作的续航，配合防御能把精英拖成对拼；前期我死于精英(乐加维林×2)，缺的就是这个。上勾拳是单卡爆发，等有钱再说。"
+        }
+      ],
+      "death_causes": [
+        {
+          "killed_by": "火大地精, 卑鄙地精, 地精法师, 火大地精",
+          "count": 1,
+          "last_run": 42
+        },
+        {
+          "killed_by": "乐加维林",
+          "count": 1,
+          "last_run": 41
+        },
+        {
+          "killed_by": "尖刺史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）",
+          "count": 1,
+          "last_run": 40
+        }
+      ]
+    },
+    "notes_omitted_this_run": 6,
+    "run_history_count": 42
+  },
+  "hints": {
+    "frames": 2679,
+    "beats": 2679,
+    "ms_since_frame": 0,
+    "ms_since_beat": 1
+  }
+}

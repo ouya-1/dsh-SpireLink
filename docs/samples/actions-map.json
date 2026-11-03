@@ -1,0 +1,28 @@
+{
+  "ready": true,
+  "state_version": 33,
+  "screen_type": "MAP",
+  "ui": "map",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "choose_map_node",
+      "label": "前往 第2行 · 怪物（左3）",
+      "payload": {
+        "x": 0,
+        "y": 1,
+        "room": "怪物",
+        "column": 0,
+        "column_label": "左3",
+        "row": 2
+      }
+    },
+    {
+      "id": "a2",
+      "type": "abandon_mid_run",
+      "label": "放弃本局（回主菜单）",
+      "payload": {}
+    }
+  ]
+}

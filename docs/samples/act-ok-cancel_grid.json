@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 132,
+  "error": null,
+  "action": {
+    "type": "cancel_grid",
+    "payload": {}
+  },
+  "ui": "rest",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "proceed",
+      "label": "继续",
+      "payload": {}
+    }
+  ]
+}

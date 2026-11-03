@@ -1,0 +1,47 @@
+{
+  "ready": true,
+  "state_version": 65,
+  "screen_type": "NONE",
+  "ui": "event",
+  "awaiting": "playing",
+  "hints": {
+    "keywords_unseen": [],
+    "needs_inspect": [],
+    "act_seq": 48,
+    "last_error_seq": 48,
+    "screen": "NONE",
+    "last_error": "choose_option → STALE_VERSION",
+    "last_error_age_ms": 467,
+    "last_error_fresh": true,
+    "gam_phase": "WAITING_ON_USER",
+    "frames": 15171,
+    "end_turn_enabled": false,
+    "monsters_basically_dead": false
+  },
+  "actions": [
+    {
+      "id": "a1",
+      "type": "choose_option",
+      "label": "香蕉 回复 333 生命。",
+      "payload": {
+        "index": 0
+      }
+    },
+    {
+      "id": "a2",
+      "type": "choose_option",
+      "label": "甜甜圈 最大生命值 +5 。",
+      "payload": {
+        "index": 1
+      }
+    },
+    {
+      "id": "a3",
+      "type": "choose_option",
+      "label": "盒子 获得一件遗物。 被诅咒——悔恨。",
+      "payload": {
+        "index": 2
+      }
+    }
+  ]
+}

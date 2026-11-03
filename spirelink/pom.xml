@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>spirelink</groupId>
+  <artifactId>spirelink</artifactId>
+  <version>0.1.0</version>
+  <packaging>jar</packaging>
+  <name>SpireLink</name>
+  <description>把《杀戮尖塔》的局面通过 MCP 暴露给 AI agent。</description>
+  <url>https://github.com/ouya-1/dsh-SpireLink</url>
+
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>ouya-1</id>
+      <name>ouya</name>
+      <url>https://github.com/ouya-1</url>
+    </developer>
+  </developers>
+
+  <scm>
+    <url>https://github.com/ouya-1/dsh-SpireLink</url>
+    <connection>scm:git:https://github.com/ouya-1/dsh-SpireLink.git</connection>
+  </scm>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <SlayTheSpire.version>12-18-2022</SlayTheSpire.version>
+    <ModTheSpire.version>3.30.3</ModTheSpire.version>
+    <BaseMod.version>5.56.0</BaseMod.version>
+  </properties>
+
+  <dependencies>
+    <!-- Local game / mod-loader jars, never packaged into the mod jar. -->
+    <dependency>
+      <groupId>com.megacrit.cardcrawl</groupId>
+      <artifactId>slaythespire</artifactId>
+      <version>${SlayTheSpire.version}</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../lib/desktop-1.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.evacipated.cardcrawl</groupId>
+      <artifactId>ModTheSpire</artifactId>
+      <version>${ModTheSpire.version}</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../lib/ModTheSpire.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.evacipated.cardcrawl</groupId>
+      <artifactId>BaseMod</artifactId>
+      <version>${BaseMod.version}</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../lib/BaseMod.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>SpireLink</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <!-- ModTheSpire.json lives next to pom.xml and must end up in the jar root. -->
+      <resource>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>ModTheSpire.json</include>
+        </includes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+        <configuration>
+          <argLine>-Dfile.encoding=UTF-8</argLine>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <id>spirelink-fat-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <artifactSet>
+                <excludes>
+                  <!-- Provided by the game / mod loader at runtime. -->
+                  <exclude>com.megacrit.cardcrawl:slaythespire</exclude>
+                  <exclude>com.evacipated.cardcrawl:ModTheSpire</exclude>
+                  <exclude>com.evacipated.cardcrawl:BaseMod</exclude>
+                  <exclude>junit:junit</exclude>
+                  <exclude>org.hamcrest:hamcrest-core</exclude>
+                </excludes>
+              </artifactSet>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,15 @@
+{
+  "ready": true,
+  "state_version": 8,
+  "screen_type": "NONE",
+  "ui": "treasure",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "open_chest",
+      "label": "打开宝箱",
+      "payload": {}
+    }
+  ]
+}

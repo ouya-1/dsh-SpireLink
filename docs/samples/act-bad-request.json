@@ -1,0 +1,17 @@
+{
+  "ok": false,
+  "outcome": "rejected",
+  "state_version": 3,
+  "error": {
+    "code": "UNKNOWN_ACTION_TYPE",
+    "message": "不认识的动作类型: no_such_action",
+    "state_version": 3
+  },
+  "action": {
+    "type": "no_such_action",
+    "payload": {}
+  },
+  "actions": [],
+  "ui": "combat",
+  "ready": false
+}

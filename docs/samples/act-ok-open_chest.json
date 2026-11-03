@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 160,
+  "error": null,
+  "action": {
+    "type": "open_chest",
+    "payload": {}
+  },
+  "ui": "combat_reward",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "take_reward",
+      "label": "领取奖励 25 金币",
+      "payload": {
+        "index": 0
+      }
+    },
+    {
+      "id": "a2",
+      "type": "take_reward",
+      "label": "领取奖励 餐券",
+      "payload": {
+        "index": 1
+      }
+    },
+    {
+      "id": "a3",
+      "type": "proceed",
+      "label": "继续（放弃剩余奖励）",
+      "payload": {}
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "ok": true,
+  "ready": true,
+  "state_version": 65,
+  "error": null,
+  "meta": {
+    "ready": true,
+    "test_mode": true,
+    "speed": 1.0,
+    "awaiting": "playing",
+    "state_version": 65,
+    "in_game": true,
+    "seed": "4VUVGLVBWKHPG",
+    "seed_raw": -1950987540974881185,
+    "character": "WATCHER",
+    "character_source": "player",
+    "ascension": 1,
+    "act": 1,
+    "floor": 1,
+    "screen_type": "NONE",
+    "room_phase": "EVENT",
+    "room_type": "EventRoom",
+    "room_cleared": false,
+    "render_crashed": false,
+    "ui": "event",
+    "ui_group": "event",
+    "suggest_include": [],
+    "mod_version": "0.1.0",
+    "language": "ZHS"
+  },
+  "player": {
+    "current_hp": 999,
+    "hp": 999,
+    "max_hp": 999,
+    "block": 0,
+    "energy": null,
+    "energy_max": null,
+    "gold": 53,
+    "stance": {
+      "id": "Calm",
+      "name": "平静"
+    },
+    "orbs": [],
+    "orb_slots": 0,
+    "orbs_filled": 0,
+    "orb_evoke_next": -1,
+    "focus": 0,
+    "potions": [],
+    "powers": [],
+    "relics": [
+      {
+        "id": "PureWater",
+        "name": "至纯之水",
+        "text": "在每场战斗开始时，将一张 #y奇迹 放入你的手牌。",
+        "note": null
+      }
+    ]
+  },
+  "potions": {
+    "slot_count": 3,
+    "slots": [
+      {
+        "slot": 0,
+        "empty": true
+      },
+      {
+        "slot": 1,
+        "empty": true
+      },
+      {
+        "slot": 2,
+        "empty": true
+      }
+    ]
+  },
+  "hints": {
+    "keywords_unseen": [],
+    "needs_inspect": [],
+    "act_seq": 48,
+    "last_error_seq": 48,
+    "screen": "NONE",
+    "last_error": "choose_option → STALE_VERSION",
+    "last_error_age_ms": 467,
+    "last_error_fresh": true,
+    "gam_phase": "WAITING_ON_USER",
+    "frames": 47594,
+    "end_turn_enabled": false,
+    "monsters_basically_dead": false,
+    "beats": 47594,
+    "ms_since_frame": 0,
+    "ms_since_beat": 0
+  },
+  "event": {
+    "id": "BigFish",
+    "name": "大鱼",
+    "body": "当 你 走 过 一 条 长 廊 时 ， 你 看 见 空 中 漂 浮 着 一 根 香 蕉 ， 一 个 甜 甜 圈 ， 和 一 个 盒 子 。 不 … … 仔 细 一 看 ， 它 们 都 是 被 用 绳 子 系 着 ， 从 天 花 板 上 的 几 个 洞 里 悬 挂 下 来 的 。 你 在 接 近 这 几 样 东 西 时 ， 上 方 似 乎 传 来 一 阵 咯 咯 的 笑 声 。 你 会 怎 么 做 ？",
+    "options": [
+      {
+        "index": 0,
+        "text": "[香蕉]  #g回复  #g333 #g生命。",
+        "disabled": false
+      },
+      {
+        "index": 1,
+        "text": "[甜甜圈] #g最大生命值 #g+5 #g。",
+        "disabled": false
+      },
+      {
+        "index": 2,
+        "text": "[盒子] #g获得一件遗物。 #r被【诅咒】——悔恨。",
+        "keywords": [
+          "诅咒"
+        ],
+        "disabled": false
+      }
+    ],
+    "text_typing": false,
+    "note": "示例便签：先用痛击上易伤。",
+    "note_updated_at": 1793499678
+  },
+  "memory": {
+    "context_notes": [],
+    "recent_notes": [],
+    "counts": {
+      "general": 17,
+      "monster": 18,
+      "card": 4,
+      "event": 7,
+      "potion": 8,
+      "relic": 1
+    },
+    "total": 55,
+    "notes_omitted_this_run": 1150,
+    "run_history": [
+      {
+        "run": 39,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 6,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793628093
+      },
+      {
+        "run": 40,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 11,
+        "result": "death",
+        "killed_by": "尖刺史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）",
+        "hp": 0,
+        "deck_size": 11,
+        "notes": 55,
+        "finished_at": 1793628727
+      },
+      {
+        "run": 41,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 12,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793630156
+      },
+      {
+        "run": 42,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 8,
+        "result": "death",
+        "killed_by": "火大地精, 卑鄙地精, 地精法师, 火大地精",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793631097
+      },
+      {
+        "run": 43,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 1,
+        "result": "death",
+        "killed_by": "大颚虫",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793639444
+      }
+    ],
+    "run_history_count": 43
+  }
+}

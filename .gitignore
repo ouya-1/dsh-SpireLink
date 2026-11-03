@@ -1,0 +1,31 @@
+# 构建产物
+/spirelink/target/
+**/*.class
+**/*.jar
+
+# 需要自备的游戏/加载器 jar（见 lib/README.md）
+/lib/*
+!/lib/README.md
+!/lib/VERSIONS.md
+
+# 可选的便携工具链（JDK8 / Maven）
+/tools/
+
+# 日志与游戏侧数据
+*.log
+/logs/
+# 游戏「发送日志给开发者」生成的日志包（运行时产物）
+/spirelink/sendToDevs/
+/sendToDevs/
+*.zip
+
+# 本地临时文件
+/tmp/
+*.bak
+
+# 窗口位置是本机桌面布局，不是仓库内容
+/scripts/window_position.json
+
+# Python 缓存
+__pycache__/
+*.pyc

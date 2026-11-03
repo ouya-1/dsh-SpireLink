@@ -1,0 +1,199 @@
+{
+  "ok": true,
+  "ready": true,
+  "state_version": 10,
+  "error": null,
+  "meta": {
+    "ready": true,
+    "test_mode": true,
+    "speed": 1.0,
+    "awaiting": "char_select",
+    "state_version": 10,
+    "in_game": false,
+    "seed": null,
+    "seed_raw": null,
+    "character": "IRONCLAD",
+    "character_source": "char_select",
+    "ascension": 0,
+    "act": 0,
+    "floor": 0,
+    "screen_type": "NONE",
+    "room_phase": null,
+    "room_type": null,
+    "render_crashed": false,
+    "ui": "char_select",
+    "ui_group": "char_select",
+    "suggest_include": [],
+    "mod_version": "0.1.0",
+    "language": "ZHS"
+  },
+  "player": {
+    "current_hp": 999,
+    "hp": 999,
+    "max_hp": 999,
+    "block": 0,
+    "energy": null,
+    "energy_max": null,
+    "gold": 99,
+    "stance": null,
+    "orbs": [],
+    "orb_slots": 0,
+    "orbs_filled": 0,
+    "orb_evoke_next": -1,
+    "focus": 0,
+    "potions": [],
+    "powers": [],
+    "relics": [
+      {
+        "id": "Burning Blood",
+        "name": "燃烧之血",
+        "text": "在战斗结束时，回复 #b6 点生命。",
+        "note": null
+      }
+    ]
+  },
+  "potions": {
+    "slot_count": 3,
+    "slots": [
+      {
+        "slot": 0,
+        "empty": true
+      },
+      {
+        "slot": 1,
+        "empty": true
+      },
+      {
+        "slot": 2,
+        "empty": true
+      }
+    ]
+  },
+  "hints": {
+    "keywords_unseen": [],
+    "needs_inspect": [],
+    "act_seq": 9,
+    "last_error_seq": 0,
+    "screen": "NONE",
+    "gam_phase": "WAITING_ON_USER",
+    "frames": 9624,
+    "end_turn_enabled": false,
+    "monsters_basically_dead": false,
+    "char_selected": "IRONCLAD",
+    "next": "embark",
+    "beats": 9624,
+    "ms_since_frame": 0,
+    "ms_since_beat": 0
+  },
+  "char_select": {
+    "options": [
+      {
+        "index": 0,
+        "id": "IRONCLAD",
+        "name": "铁甲战士",
+        "selected": true,
+        "locked": false
+      },
+      {
+        "index": 1,
+        "id": "THE_SILENT",
+        "name": "静默猎手",
+        "selected": false,
+        "locked": false
+      },
+      {
+        "index": 2,
+        "id": "DEFECT",
+        "name": "故障机器人",
+        "selected": false,
+        "locked": false
+      },
+      {
+        "index": 3,
+        "id": "WATCHER",
+        "name": "观者",
+        "selected": false,
+        "locked": false
+      }
+    ],
+    "selected": "IRONCLAD",
+    "selected_index": 0,
+    "selected_name": "铁甲战士"
+  },
+  "memory": {
+    "context_notes": [],
+    "recent_notes": [],
+    "counts": {
+      "event": 7,
+      "potion": 8,
+      "card": 4,
+      "monster": 18,
+      "relic": 1,
+      "general": 17
+    },
+    "notes_omitted_this_run": 48,
+    "run_history": [
+      {
+        "run": 39,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 6,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793628093
+      },
+      {
+        "run": 40,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 11,
+        "result": "death",
+        "killed_by": "尖刺史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）",
+        "hp": 0,
+        "deck_size": 11,
+        "notes": 55,
+        "finished_at": 1793628727
+      },
+      {
+        "run": 41,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 12,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793630156
+      },
+      {
+        "run": 42,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 8,
+        "result": "death",
+        "killed_by": "火大地精, 卑鄙地精, 地精法师, 火大地精",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793631097
+      },
+      {
+        "run": 43,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 1,
+        "result": "death",
+        "killed_by": "大颚虫",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793639444
+      }
+    ],
+    "run_history_count": 43
+  }
+}

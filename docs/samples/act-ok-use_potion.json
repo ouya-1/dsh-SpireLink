@@ -1,0 +1,79 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 49,
+  "error": null,
+  "action": {
+    "type": "use_potion",
+    "payload": {
+      "slot": 1
+    }
+  },
+  "ui": "combat",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "play_card",
+      "label": "出牌 打击+ → 第1只(蛇花)",
+      "payload": {
+        "uuid": "7bdb305c-1e0a-4c18-a010-7e7ee2b7a5a7",
+        "target_index": 0
+      }
+    },
+    {
+      "id": "a2",
+      "type": "play_card",
+      "label": "出牌 电击",
+      "payload": {
+        "uuid": "55d252a5-e6a6-4dac-8fb5-6b3a8655dd3d"
+      }
+    },
+    {
+      "id": "a3",
+      "type": "play_card",
+      "label": "出牌 防御",
+      "payload": {
+        "uuid": "26f12375-036a-443c-9e02-d985f4e6db49"
+      }
+    },
+    {
+      "id": "a4",
+      "type": "play_card",
+      "label": "出牌 冷静头脑",
+      "payload": {
+        "uuid": "e6167c4b-60af-436d-b9e0-ecc783704a09"
+      }
+    },
+    {
+      "id": "a5",
+      "type": "discard_potion",
+      "label": "丢弃药水 瓶中精灵",
+      "payload": {
+        "slot": 0
+      }
+    },
+    {
+      "id": "a6",
+      "type": "use_potion",
+      "label": "用药水 格挡药水",
+      "payload": {
+        "slot": 2
+      }
+    },
+    {
+      "id": "a7",
+      "type": "discard_potion",
+      "label": "丢弃药水 格挡药水",
+      "payload": {
+        "slot": 2
+      }
+    },
+    {
+      "id": "a8",
+      "type": "end_turn",
+      "label": "结束回合",
+      "payload": {}
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 43,
+  "error": null,
+  "action": {
+    "type": "choose_map_node",
+    "payload": {
+      "x": 1,
+      "y": 3,
+      "room": "怪物",
+      "column": 1,
+      "column_label": "左2",
+      "row": 4
+    }
+  },
+  "ui": "combat",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "discard_potion",
+      "label": "丢弃药水 瓶中精灵",
+      "payload": {
+        "slot": 0
+      }
+    },
+    {
+      "id": "a2",
+      "type": "use_potion",
+      "label": "用药水 爆炸药水",
+      "payload": {
+        "slot": 1
+      }
+    },
+    {
+      "id": "a3",
+      "type": "discard_potion",
+      "label": "丢弃药水 爆炸药水",
+      "payload": {
+        "slot": 1
+      }
+    },
+    {
+      "id": "a4",
+      "type": "use_potion",
+      "label": "用药水 格挡药水",
+      "payload": {
+        "slot": 2
+      }
+    },
+    {
+      "id": "a5",
+      "type": "discard_potion",
+      "label": "丢弃药水 格挡药水",
+      "payload": {
+        "slot": 2
+      }
+    }
+  ]
+}

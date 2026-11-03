@@ -1,0 +1,1454 @@
+{
+  "ok": true,
+  "ready": true,
+  "state_version": 33,
+  "error": null,
+  "meta": {
+    "ready": true,
+    "test_mode": false,
+    "speed": 1.0,
+    "awaiting": "playing",
+    "state_version": 33,
+    "in_game": true,
+    "seed": "39350NGPGEMN",
+    "seed_raw": 314722147750928318,
+    "character": "DEFECT",
+    "ascension": 0,
+    "act": 2,
+    "floor": 18,
+    "screen_type": "MAP",
+    "room_phase": "NONE",
+    "room_type": "MapRoom",
+    "render_crashed": false,
+    "ui": "map",
+    "ui_group": "map",
+    "suggest_include": [],
+    "mod_version": "0.1.0",
+    "language": "ZHS"
+  },
+  "player": {
+    "current_hp": 977,
+    "hp": 977,
+    "max_hp": 999,
+    "block": 0,
+    "energy": null,
+    "energy_max": null,
+    "gold": 87,
+    "stance": null,
+    "orbs": [
+      {
+        "index": 0,
+        "empty": false,
+        "id": "Frost",
+        "name": "冰霜",
+        "passive": 2,
+        "evoke": 5
+      },
+      {
+        "index": 1,
+        "empty": false,
+        "id": "Frost",
+        "name": "冰霜",
+        "passive": 2,
+        "evoke": 5
+      },
+      {
+        "index": 2,
+        "empty": false,
+        "id": "Lightning",
+        "name": "闪电",
+        "passive": 3,
+        "evoke": 8
+      }
+    ],
+    "orb_slots": 3,
+    "orbs_filled": 3,
+    "orb_evoke_next": 0,
+    "focus": 0,
+    "potions": [
+      {
+        "slot": 0,
+        "id": "FairyPotion",
+        "name": "瓶中精灵",
+        "can_use": false,
+        "can_discard": true,
+        "description": "当你要被杀死时，免死并回复到最大生命值的 30% ，丢弃这瓶药水。"
+      },
+      {
+        "slot": 1,
+        "id": "Explosive Potion",
+        "name": "爆炸药水",
+        "can_use": false,
+        "can_discard": true,
+        "description": "对所有敌人造成 10 点伤害。"
+      },
+      {
+        "slot": 2,
+        "id": "Block Potion",
+        "name": "格挡药水",
+        "can_use": false,
+        "can_discard": true,
+        "description": "获得 12 点 【格挡】 。",
+        "keywords": [
+          "格挡"
+        ]
+      }
+    ],
+    "powers": [],
+    "relics": [
+      {
+        "id": "Cracked Core",
+        "name": "破损核心",
+        "text": "在每场战斗开始时， #y【生成】 #b1 个 #y【闪电】 充能球。",
+        "keywords": [
+          "生成",
+          "闪电"
+        ],
+        "note": null
+      },
+      {
+        "id": "NeowsBlessing",
+        "name": "涅奥的悲恸",
+        "text": "这件遗物的效果已经被用完。",
+        "note": null
+      },
+      {
+        "id": "Meat on the Bone",
+        "name": "带骨肉",
+        "text": "如果你在战斗结束时生命值等于或低于 #b50% ，回复 #b12 点生命。",
+        "note": null
+      },
+      {
+        "id": "Question Card",
+        "name": "问号牌",
+        "text": "在选奖励牌时，可供选择的牌数增加 #b1 张。（拾起时同一窗口中的奖励牌不受影响）",
+        "note": null
+      },
+      {
+        "id": "Odd Mushroom",
+        "name": "奇怪蘑菇",
+        "text": "当你有 #y【易伤】 状态时，受到的额外伤害从 #b50% 下降为 #b25% 。",
+        "keywords": [
+          "易伤"
+        ],
+        "note": null
+      },
+      {
+        "id": "War Paint",
+        "name": "战纹涂料",
+        "text": "拾起时，随机 #y【升级】 #b2 张 #y技能牌 。",
+        "keywords": [
+          "升级"
+        ],
+        "note": null
+      },
+      {
+        "id": "Singing Bowl",
+        "name": "颂钵",
+        "text": "可以将卡牌奖励转变为 #b+2 最大生命值。",
+        "note": null
+      },
+      {
+        "id": "Coffee Dripper",
+        "name": "咖啡滤杯",
+        "text": "在每回合开始时获得 [E] 。 你无法再在休息处 #y休息 。",
+        "note": null
+      }
+    ]
+  },
+  "potions": {
+    "slot_count": 3,
+    "slots": [
+      {
+        "slot": 0,
+        "empty": false,
+        "id": "FairyPotion",
+        "name": "瓶中精灵",
+        "can_use": false,
+        "can_discard": true,
+        "is_thrown": false,
+        "target_required": false,
+        "text": "当你要被杀死时，免死并回复到最大生命值的 #b30% ，丢弃这瓶药水。",
+        "color": "FAIRY"
+      },
+      {
+        "slot": 1,
+        "empty": false,
+        "id": "Explosive Potion",
+        "name": "爆炸药水",
+        "can_use": false,
+        "can_discard": true,
+        "is_thrown": true,
+        "target_required": false,
+        "text": "对所有敌人造成 #b10 点伤害。",
+        "color": "EXPLOSIVE"
+      },
+      {
+        "slot": 2,
+        "empty": false,
+        "id": "Block Potion",
+        "name": "格挡药水",
+        "can_use": false,
+        "can_discard": true,
+        "is_thrown": false,
+        "target_required": false,
+        "text": "获得 #b12 点 #y格挡 。",
+        "color": "BLUE"
+      }
+    ]
+  },
+  "map": {
+    "boss_available": false,
+    "boss_present": true,
+    "boss": {
+      "x": -1,
+      "y": 15,
+      "room": "MonsterRoomBoss"
+    },
+    "act": 2,
+    "floor": 18,
+    "rows": 15,
+    "current": {
+      "x": 0,
+      "y": 0
+    },
+    "from_row_start": 0,
+    "from_row": [
+      [
+        {
+          "x": 0,
+          "y": 0,
+          "symbol": "M",
+          "room": "monster",
+          "taken": true,
+          "edges": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "symbol": "M",
+          "room": "monster",
+          "edges": []
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "symbol": "M",
+          "room": "monster",
+          "edges": []
+        },
+        {
+          "x": 4,
+          "y": 0,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 0,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              1
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 0,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              6,
+              1
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 1,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 4,
+          "y": 1,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              2
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 1,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              5,
+              2
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 1,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              2
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 2,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              4,
+              3
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              3
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 2,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 3,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              4,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 3,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 4,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              3,
+              5
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 4,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              3,
+              5
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 4,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 6,
+          "y": 4,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 5,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 5,
+          "symbol": "E",
+          "room": "elite",
+          "edges": [
+            [
+              0,
+              6
+            ]
+          ]
+        },
+        {
+          "x": 2,
+          "y": 5,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              1,
+              6
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "symbol": "E",
+          "room": "elite",
+          "edges": [
+            [
+              3,
+              6
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "symbol": "E",
+          "room": "elite",
+          "edges": [
+            [
+              5,
+              6
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 6,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              0,
+              7
+            ]
+          ]
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              2,
+              7
+            ]
+          ]
+        },
+        {
+          "x": 2,
+          "y": 6,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 3,
+          "y": 6,
+          "symbol": "$",
+          "room": "shop",
+          "edges": [
+            [
+              2,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 6,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 5,
+          "y": 6,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              4,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 6,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 7,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "x": 1,
+          "y": 7,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 7,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 4,
+          "y": 7,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 7,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "symbol": "$",
+          "room": "shop",
+          "edges": [
+            [
+              5,
+              8
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 8,
+          "symbol": "T",
+          "room": "treasure",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 8,
+          "symbol": "T",
+          "room": "treasure",
+          "edges": [
+            [
+              2,
+              9
+            ]
+          ]
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "symbol": "T",
+          "room": "treasure",
+          "edges": []
+        },
+        {
+          "x": 3,
+          "y": 8,
+          "symbol": "T",
+          "room": "treasure",
+          "edges": [
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              9
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 8,
+          "symbol": "T",
+          "room": "treasure",
+          "edges": []
+        },
+        {
+          "x": 5,
+          "y": 8,
+          "symbol": "T",
+          "room": "treasure",
+          "edges": [
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              9
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 8,
+          "symbol": "T",
+          "room": "treasure",
+          "edges": []
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 9,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 9,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 9,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              3,
+              10
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 9,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              4,
+              10
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 9,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              10
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 9,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              6,
+              10
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 9,
+          "symbol": "E",
+          "room": "elite",
+          "edges": [
+            [
+              6,
+              10
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 10,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 10,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 10,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 3,
+          "y": 10,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              2,
+              11
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 10,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              3,
+              11
+            ],
+            [
+              5,
+              11
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 10,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              11
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 10,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              11
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 11,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 11,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 11,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              1,
+              12
+            ]
+          ]
+        },
+        {
+          "x": 3,
+          "y": 11,
+          "symbol": "E",
+          "room": "elite",
+          "edges": [
+            [
+              4,
+              12
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 11,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 5,
+          "y": 11,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              12
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 11,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 12,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 1,
+          "y": 12,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              0,
+              13
+            ]
+          ]
+        },
+        {
+          "x": 2,
+          "y": 12,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 3,
+          "y": 12,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 4,
+          "y": 12,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              3,
+              13
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 12,
+          "symbol": "$",
+          "room": "shop",
+          "edges": [
+            [
+              4,
+              13
+            ],
+            [
+              5,
+              13
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 12,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              5,
+              13
+            ],
+            [
+              6,
+              13
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 13,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              0,
+              14
+            ]
+          ]
+        },
+        {
+          "x": 1,
+          "y": 13,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 13,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": []
+        },
+        {
+          "x": 3,
+          "y": 13,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              3,
+              14
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 13,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              4,
+              14
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 13,
+          "symbol": "M",
+          "room": "monster",
+          "edges": [
+            [
+              4,
+              14
+            ],
+            [
+              5,
+              14
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 13,
+          "symbol": "?",
+          "room": "unknown",
+          "edges": [
+            [
+              6,
+              14
+            ]
+          ]
+        }
+      ],
+      [
+        {
+          "x": 0,
+          "y": 14,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              3,
+              16
+            ]
+          ]
+        },
+        {
+          "x": 1,
+          "y": 14,
+          "symbol": "R",
+          "room": "rest",
+          "edges": []
+        },
+        {
+          "x": 2,
+          "y": 14,
+          "symbol": "R",
+          "room": "rest",
+          "edges": []
+        },
+        {
+          "x": 3,
+          "y": 14,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              3,
+              16
+            ]
+          ]
+        },
+        {
+          "x": 4,
+          "y": 14,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              3,
+              16
+            ]
+          ]
+        },
+        {
+          "x": 5,
+          "y": 14,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              3,
+              16
+            ]
+          ]
+        },
+        {
+          "x": 6,
+          "y": 14,
+          "symbol": "R",
+          "room": "rest",
+          "edges": [
+            [
+              3,
+              16
+            ]
+          ]
+        }
+      ]
+    ],
+    "reachable": [
+      {
+        "x": 0,
+        "y": 1
+      }
+    ]
+  },
+  "memory": {
+    "context_notes": [],
+    "recent_notes": [],
+    "counts": {
+      "general": 17,
+      "monster": 18,
+      "card": 4,
+      "event": 7,
+      "potion": 8,
+      "relic": 1
+    },
+    "total": 55,
+    "notes_omitted_this_run": 347,
+    "run_history": [
+      {
+        "run": 38,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 1,
+        "result": "death",
+        "killed_by": "邪教徒",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793627297
+      },
+      {
+        "run": 39,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 6,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 10,
+        "notes": 55,
+        "finished_at": 1793628093
+      },
+      {
+        "run": 40,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 11,
+        "result": "death",
+        "killed_by": "尖刺史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）, 尖刺史莱姆（小）, 酸液史莱姆（小）",
+        "hp": 0,
+        "deck_size": 11,
+        "notes": 55,
+        "finished_at": 1793628727
+      },
+      {
+        "run": 41,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 12,
+        "result": "death",
+        "killed_by": "乐加维林",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793630156
+      },
+      {
+        "run": 42,
+        "character": "IRONCLAD",
+        "act": 1,
+        "floor": 8,
+        "result": "death",
+        "killed_by": "火大地精, 卑鄙地精, 地精法师, 火大地精",
+        "hp": 0,
+        "deck_size": 14,
+        "notes": 55,
+        "finished_at": 1793631097
+      }
+    ],
+    "run_history_count": 42
+  },
+  "hints": {
+    "frames": 8284,
+    "beats": 8284,
+    "ms_since_frame": 0,
+    "ms_since_beat": 0
+  }
+}

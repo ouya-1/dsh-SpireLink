@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 73,
+  "error": null,
+  "action": {
+    "type": "proceed",
+    "payload": {}
+  },
+  "ui": "map",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "choose_map_node",
+      "label": "前往 第5行 · 事件（左1）",
+      "payload": {
+        "x": 2,
+        "y": 4,
+        "room": "事件",
+        "column": 2,
+        "column_label": "左1",
+        "row": 5
+      }
+    },
+    {
+      "id": "a2",
+      "type": "abandon_mid_run",
+      "label": "放弃本局（回主菜单）",
+      "payload": {}
+    }
+  ]
+}

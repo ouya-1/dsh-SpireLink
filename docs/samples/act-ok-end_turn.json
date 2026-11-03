@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 47,
+  "error": null,
+  "action": {
+    "type": "end_turn",
+    "payload": {}
+  },
+  "ui": "combat",
+  "ready": false,
+  "actions": []
+}

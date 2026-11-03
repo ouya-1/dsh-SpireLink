@@ -1,0 +1,15 @@
+{
+  "ready": true,
+  "state_version": 7,
+  "screen_type": "NONE",
+  "ui": "rest",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "smith",
+      "label": "锻造（升级一张牌）",
+      "payload": {}
+    }
+  ]
+}

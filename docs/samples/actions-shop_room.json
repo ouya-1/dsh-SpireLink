@@ -1,0 +1,21 @@
+{
+  "ready": true,
+  "state_version": 32,
+  "screen_type": "NONE",
+  "ui": "shop_room",
+  "awaiting": "playing",
+  "actions": [
+    {
+      "id": "a1",
+      "type": "open_shop",
+      "label": "逛商店",
+      "payload": {}
+    },
+    {
+      "id": "a2",
+      "type": "leave",
+      "label": "离开商店",
+      "payload": {}
+    }
+  ]
+}

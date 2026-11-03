@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "query": "格挡",
+  "results": [
+    {
+      "term": "格挡",
+      "aliases": [
+        "格挡",
+        "blocks",
+        "BLOCK"
+      ],
+      "definition": "持续到下回合开始前，阻挡伤害。",
+      "source": "keyword"
+    }
+  ]
+}

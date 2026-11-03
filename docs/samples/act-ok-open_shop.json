@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "outcome": "applied",
+  "state_version": 41,
+  "error": null,
+  "action": {
+    "type": "open_shop",
+    "payload": {}
+  },
+  "ui": "shop",
+  "ready": true,
+  "actions": [
+    {
+      "id": "a1",
+      "type": "leave",
+      "label": "离开商店",
+      "payload": {}
+    }
+  ]
+}

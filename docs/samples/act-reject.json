@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "outcome": "rejected",
+  "state_version": 3,
+  "error": {
+    "code": "NOT_READY",
+    "message": "不是玩家回合或动画没结束",
+    "state_version": 3
+  },
+  "action": {
+    "type": "play_card",
+    "payload": {
+      "uuid": "not-a-real-uuid"
+    }
+  },
+  "actions": [],
+  "ui": "combat",
+  "ready": false
+}
