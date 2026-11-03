@@ -103,7 +103,8 @@ public final class AgentHudRenderer {
     private static final float NOTE_TOP = 196f;
     private static final float NOTE_MARGIN_RIGHT = 28f;
     private static final int NOTE_CHARS_PER_LINE = 26;
-    private static final int NOTE_MAX_LINES = 3;
+    /** 0.1.4: 3 行装不下一条便签（笔记本来就长），改成 6 行；右上角还有空间。 */
+    private static final int NOTE_MAX_LINES = 6;
 
     /** Last note text whose on-screen position was logged (diagnostics only). */
     private static String loggedNote;
@@ -118,7 +119,13 @@ public final class AgentHudRenderer {
     public static final float THOUGHT_TOP = 118f;
     /** 32 chars per row fits the 1280x720 virtual width next to the left relic column. */
     public static final int THOUGHT_CHARS_PER_LINE = THOUGHT_STYLE.charsPerLine;
-    public static final int THOUGHT_MAX_LINES = 3;
+    /**
+     * 0.1.4: 3 行 × 32 字只有 96 字，一条像样的打算就溢出了；放到 5 行（160 字）。
+     *
+     * <p>不能更高：活动流紧跟在思考块下面，6 行时 feedBottom 会越过 720p 的中线
+     * （{@code AgentHudThoughtTest} 有一条断言就是守这个的）。
+     */
+    public static final int THOUGHT_MAX_LINES = 5;
     /** Empty rows between the thought block and the shifted activity feed. */
     public static final float THOUGHT_GAP = 10f;
 
