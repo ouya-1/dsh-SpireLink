@@ -38,7 +38,7 @@
 
 ## 三、安装（只想玩）
 
-1. 下载 **`SpireLink-0.1.0.jar`**（[Releases](https://github.com/ouya-1/dsh-SpireLink/releases)），或自己构建（见第四节）；
+1. 下载 Releases 里最新的 **`SpireLink-*.jar`**（[Releases](https://github.com/ouya-1/dsh-SpireLink/releases/latest)），或自己构建（见第四节）；
 2. 放进 `<游戏目录>\mods\SpireLink.jar`；
 3. 用 ModTheSpire 启动，勾选 **BaseMod** 和 **SpireLink**；
 4. 游戏起来后 `curl http://127.0.0.1:8731/health` 返回 200 就说明通了。
