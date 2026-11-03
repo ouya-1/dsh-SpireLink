@@ -631,6 +631,8 @@ public final class StateBuilder {
         java.util.Set<String> names = new java.util.LinkedHashSet<String>();
         names.add("map_no_reachable");
         names.add("suggest_note");
+        names.add("notes_pending");
+        names.add("first_encounter");
         names.add("unknown_ui");
         names.add("event_missing");
         return java.util.Collections.unmodifiableSet(names);
@@ -1127,6 +1129,14 @@ public final class StateBuilder {
                 event.getAsJsonObject().add("match_game", matchGame);
             }
         }
+        // 0.1.7 局中触发：第一次遇到的怪 / 事件 / 牌，还没有便签就点一下名。
+        // "首次遭遇"是这个游戏里最贵的信息 —— 死过一次才知道的规律，别等第二次。
+        if ("combat".equals(ui) || "event".equals(ui)) {
+            com.google.gson.JsonArray fresh = firstEncounters(ui);
+            if (fresh != null && fresh.size() > 0) {
+                hints.add("first_encounter", fresh);
+            }
+        }
         NoteAnnotator.annotate(root);
         // Issue #124 · C15-02: one sentence per body explaining that those notes are history, so the
         // marker is readable without opening the docs.
@@ -1143,6 +1153,17 @@ public final class StateBuilder {
             if (suggestion != null && !suggestion.isEmpty()
                     && spirelink.util.NotesDedupe.claim("suggest:" + suggestion, suggestion)) {
                 hints.addProperty("suggest_note", suggestion);
+            }
+            // 0.1.7 硬约束：这一屏不给 proceed，先写两条便签。pending 每帧都给（不进 dedupe），
+            // 否则 agent 拒绝一次就再也看不见该写什么了。
+            NotesGate.arm(killedBy());
+            java.util.List<String> pending = NotesGate.pending();
+            if (!pending.isEmpty()) {
+                com.google.gson.JsonArray arr = new com.google.gson.JsonArray();
+                for (String item : pending) {
+                    arr.add(item);
+                }
+                hints.add("notes_pending", arr);
             }
         }
         return root;
@@ -1431,6 +1452,39 @@ public final class StateBuilder {
      * @param claim true 才会从按局去重窗口里消耗 general_notes（只给真正要发出去的响应）；
      *              构建 body 时传 false，否则缓存快照会把还没发出去的笔记白丢
      */
+    /** 当前角色的便签（{@code character:<角色名>}），开局随 briefing 一起送到。 */
+    private static JsonArray characterNotes() {
+        JsonArray out = new JsonArray();
+        String me = currentCharacter();
+        if (me == null) {
+            return out;
+        }
+        com.google.gson.JsonObject notes = spirelink.util.Notes.list("character");
+        for (java.util.Map.Entry<String, com.google.gson.JsonElement> entry : notes.entrySet()) {
+            String key = entry.getKey();
+            if (!key.equals("character:" + me)) {
+                continue;
+            }
+            com.google.gson.JsonObject item = new com.google.gson.JsonObject();
+            item.addProperty("id", me);
+            item.addProperty("text", entry.getValue().getAsJsonObject().get("text").getAsString());
+            out.add(item);
+        }
+        return out;
+    }
+
+    /** 当前角色的稳定名字（IRONCLAD / THE_SILENT / DEFECT / WATCHER），读不到给 null。 */
+    private static String currentCharacter() {
+        try {
+            if (AbstractDungeon.player == null || AbstractDungeon.player.chosenClass == null) {
+                return null;
+            }
+            return AbstractDungeon.player.chosenClass.name();
+        } catch (Throwable t) {
+            return null;
+        }
+    }
+
     private static JsonObject buildBriefing(boolean claim) {
         JsonObject out = new JsonObject();
         // "How much have I accumulated?" - the first thing a returning player checks.
@@ -1451,19 +1505,26 @@ public final class StateBuilder {
         }
         out.add("recent_runs", deaths);
         JsonArray general = new JsonArray();
-        com.google.gson.JsonObject notes = spirelink.util.Notes.list("general");
-        for (java.util.Map.Entry<String, com.google.gson.JsonElement> entry : notes.entrySet()) {
-            String text = entry.getValue().getAsJsonObject().get("text").getAsString();
-            if (claim && !spirelink.util.NotesDedupe.claim(entry.getKey() + "@"
-                    + updatedAtOf(entry.getValue()), text)) {
-                continue;
+        // 0.1.8: general（旧名）与 global（新名）是同一个桶，两条都在这份里，跨角色通用。
+        for (String kind : new String[] {"general", "global"}) {
+            com.google.gson.JsonObject notes = spirelink.util.Notes.list(kind);
+            for (java.util.Map.Entry<String, com.google.gson.JsonElement> entry : notes.entrySet()) {
+                String text = entry.getValue().getAsJsonObject().get("text").getAsString();
+                if (claim && !spirelink.util.NotesDedupe.claim(entry.getKey() + "@"
+                        + updatedAtOf(entry.getValue()), text)) {
+                    continue;
+                }
+                JsonObject item = new JsonObject();
+                item.addProperty("id", entry.getKey().substring(kind.length() + 1));
+                item.addProperty("kind", kind);
+                item.addProperty("text", text);
+                general.add(item);
             }
-            JsonObject item = new JsonObject();
-            item.addProperty("id", entry.getKey().substring("general:".length()));
-            item.addProperty("text", text);
-            general.add(item);
         }
         out.add("general_notes", general);
+        // 0.1.8: 角色便签 —— 只在本角色开局时送到。跨角色的教训混在一起时，
+        // 观者会照着铁甲战士的血线规则去打，等于带错剧本。
+        out.add("character_notes", characterNotes());
         out.add("death_causes", buildDeathCauses(history));
         return out;
     }
@@ -1653,6 +1714,50 @@ public final class StateBuilder {
     }
 
     /** A concrete note suggestion (the agent decides whether to write it). */
+    /** 第一次遇到、还没有便签的怪或事件（0.1.7 局中提示）。 */
+    private static com.google.gson.JsonArray firstEncounters(String ui) {
+        com.google.gson.JsonArray out = new com.google.gson.JsonArray();
+        try {
+            if ("combat".equals(ui)) {
+                java.util.List<com.megacrit.cardcrawl.monsters.AbstractMonster> monsters =
+                        AbstractDungeon.getMonsters() == null ? null
+                                : AbstractDungeon.getMonsters().monsters;
+                if (monsters != null) {
+                    for (com.megacrit.cardcrawl.monsters.AbstractMonster monster : monsters) {
+                        if (monster == null || monster.isDeadOrEscaped() || monster.id == null) {
+                            continue;
+                        }
+                        if (spirelink.util.Notes.get("monster", monster.id) == null
+                                && !out.contains(new com.google.gson.JsonPrimitive(
+                                        "monster:" + monster.id))) {
+                            out.add("monster:" + monster.id);
+                        }
+                    }
+                }
+            } else {
+                String id = EventPayload.currentEventId();
+                if (id != null && spirelink.util.Notes.get("event", id) == null) {
+                    out.add("event:" + id);
+                }
+            }
+        } catch (Throwable t) {
+            return null;
+        }
+        return out;
+    }
+
+    /** 这局最后一战的怪物（读不到就给遭遇 id），给 NotesGate 用。 */
+    private static String killedBy() {
+        try {
+            if (!LAST_COMBAT_MONSTERS.isEmpty()) {
+                return LAST_COMBAT_MONSTERS.get(LAST_COMBAT_MONSTERS.size() - 1);
+            }
+            return encounterId();
+        } catch (Throwable t) {
+            return null;
+        }
+    }
+
     private static String suggestNote(String ui) {
         try {
             String killedBy = LAST_COMBAT_MONSTERS.isEmpty() ? encounterId()

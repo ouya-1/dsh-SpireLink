@@ -1119,8 +1119,12 @@ public final class ToolCatalog {
         JsonObject schema = new JsonObject();
         schema.addProperty("type", "object");
         JsonObject props = new JsonObject();
-        props.add("kind", enumProp("便签种类（六选一）", NOTE_KINDS));
-        props.add("id", stringProp("该对象的稳定 id（事件=类名，卡牌=cardID，药水=类名，敌人=monster.id，遗物=relicId）"));
+        props.add("kind", enumProp("便签种类（八选一）：global=所有角色通用的规则，"
+                + "character=只对某个角色有效（id 写 IRONCLAD/THE_SILENT/DEFECT/WATCHER），"
+                + "general=旧版通用（等同 global）", NOTE_KINDS));
+        props.add("id", stringProp("该对象的稳定 id（事件=类名，卡牌=cardID，药水=类名，"
+                + "敌人=monster.id，遗物=relicId，global/general=自己起名，"
+                + "character=角色名 IRONCLAD/THE_SILENT/DEFECT/WATCHER）"));
         props.add("text", stringProp("便签内容（必填）：写内容就传字符串；"
                 + "要删除这条便签请显式传 text:\"\"。漏传 / 传 null → BAD_REQUEST，不会当作删除"));
         schema.add("properties", props);
@@ -1260,7 +1264,7 @@ public final class ToolCatalog {
 
     /** Kinds the notes store accepts; anything else is a caller mistake, not an empty note. */
     private static final java.util.List<String> NOTE_KINDS = java.util.Arrays.asList(
-            "event", "potion", "card", "monster", "relic", "general");
+            "event", "potion", "card", "monster", "relic", "general", "global", "character");
 
     /** Rooms {@code dev_room} can force (issue #81); the implementation also accepts aliases. */
     private static final java.util.List<String> DEV_ROOM_TYPES = java.util.Arrays.asList(

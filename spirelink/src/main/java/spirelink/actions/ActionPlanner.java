@@ -1626,6 +1626,13 @@ public final class ActionPlanner {
     }
 
     private static void runOver(List<ActionSpec> out) {
+        // 0.1.7 硬约束：结算屏先写复盘便签（monster:<杀死你的> + general:<任意>），才给"回主菜单"。
+        // 唯一出口是 note_set —— 它常驻工具清单，所以这不是死路，只是绕不过去。
+        java.util.List<String> pending = spirelink.state.NotesGate.pending();
+        if (!pending.isEmpty()) {
+            planInfo("death.notes_pending", "先写复盘便签才能开新局：" + pending);
+            return;
+        }
         add(out, ActionTypes.PROCEED, "回主菜单", new JsonObject());
     }
 

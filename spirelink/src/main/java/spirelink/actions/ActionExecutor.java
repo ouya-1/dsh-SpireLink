@@ -4039,6 +4039,14 @@ public final class ActionExecutor {
     }
 
     private static ActionResult proceed() {
+        // 0.1.7 硬约束：拿到 pending 就说明这一局刚结束、复盘还没写。
+        java.util.List<String> pendingNotes = spirelink.state.NotesGate.pending();
+        if (!pendingNotes.isEmpty()) {
+            return ActionResult.reject(ErrorCodes.NOT_READY,
+                    "这局已经结束，先写复盘便签再开新局：" + pendingNotes
+                            + "（note_set{kind:\"monster\", id:\"<怪物 id>\", text:\"下次怎么打\"} 与 "
+                            + "note_set{kind:\"general\", id:\"<任意>\", text:\"下次遇到这种情况怎么办\"}）");
+        }
         // Issue #70: on the main menu there is no currMapNode, so getCurrRoom() throws an NPE that
         // used to surface as INTERNAL. The legality matrix already rejects proceed there; this is the
         // second layer, so no future caller can bring the INTERNAL NPE back.
