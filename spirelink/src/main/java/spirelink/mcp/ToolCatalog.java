@@ -2140,6 +2140,10 @@ public final class ToolCatalog {
             log.info("act 幂等命中: " + actionId);
             return new ToolResult(cached, !isOk(cached));
         }
+        String sayAlong = strArg(arguments, "say");
+        if (sayAlong != null && !sayAlong.trim().isEmpty()) {
+            AgentHud.thought(sayAlong, 0L);
+        }
         // Issues #62 / #72: check the types BEFORE anything is executed. "30" is not 30, an array is
         // not a payload, and silently coercing either makes an agent believe its version check and
         // its payload were honoured when neither was.
@@ -3085,6 +3089,10 @@ public final class ToolCatalog {
                 + "（整数：字符串 \"30\"、浮点 30.5、null 一律 BAD_REQUEST，不会替你转换）"));
         properties.add("action_id", stringProp("客户端生成的 UUID，可选但强烈建议：用于幂等"
                 + "（同 id 只执行一次，重发不会把同一个动作再做一遍）"));
+        // 0.1.3: 把"这一步的打算"塞进 act 自己，别让 agent 为了说话多跳一次调用。
+        // 现场见过两次：工具流里的 agent 从不离开 act 去打 /hud/say，思考块整局是空的。
+        properties.add("say", stringProp("这一步的打算，一句话（可选）。给了就先推到左上角思考块再执行，"
+                + "等于先调 say 工具；不给就不显示。人类靠它看见你在想什么。"));
         schema.add("properties", properties);
         JsonArray required = new JsonArray();
         required.add("type");

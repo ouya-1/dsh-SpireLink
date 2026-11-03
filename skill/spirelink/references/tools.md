@@ -99,6 +99,8 @@
 - 一次只显示最新一条，新的覆盖旧的；`ttl_ms` 默认 12000，到期自己消失，想留着就再推。
 - `shown:false` = 这次没画上去（没屏/被限流），换一句再推。
 - 走 MCP 的等同物是 `POST /hud/say`（非 MCP 端点，body 同样是 `{text, ttlMs}`）。
+- **更省事的写法**：`act` 自带一个可选的 `say` 字段，值是一句话，执行动作前先推到思考块。
+  `act {type, state_version, payload, say: "这一步要做什么"}` —— 一次调用同时把事做了、把话说出去。
 
 ### `card_info`（内部调试，agent 不需要调用）
 

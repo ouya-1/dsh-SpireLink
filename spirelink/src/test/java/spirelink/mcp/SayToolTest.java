@@ -51,6 +51,22 @@ public class SayToolTest {
     }
 
     @Test
+    public void actCarriesAnOptionalSay() {
+        JsonArray tools = new ToolCatalog(null, null, null).listTools();
+        JsonObject act = null;
+        for (int i = 0; i < tools.size(); i++) {
+            JsonObject t = tools.get(i).getAsJsonObject();
+            if (ToolCatalog.TOOL_ACT.equals(t.get("name").getAsString())) {
+                act = t;
+                break;
+            }
+        }
+        assertNotNull(act);
+        assertTrue("act 应该能顺带说一句话（0.1.3）：agent 不会为了说话离开工具流",
+                act.getAsJsonObject("inputSchema").getAsJsonObject("properties").has("say"));
+    }
+
+    @Test
     public void sayRejectsEmptyText() {
         JsonObject args = new JsonObject();
         args.addProperty("text", "   ");
