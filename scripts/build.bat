@@ -60,6 +60,12 @@ if exist "%REPO_ROOT%\tools\jdk8\bin\javac.exe" (
 ) else (
   if defined JAVA_HOME (
     echo [toolchain] JAVA_HOME: %JAVA_HOME%
+    if not exist "%JAVA_HOME%\bin\javac.exe" (
+      echo [ERROR] "%JAVA_HOME%\bin\javac.exe" not found.
+      echo         JAVA_HOME does not point at a JDK. Install Temurin 8 or unpack it into tools\jdk8.
+      exit /b 11
+    )
+    for /f "tokens=2" %%V in ('^"%%JAVA_HOME%%\bin\javac.exe^" -version 2^>^&1') do echo [toolchain] javac: %%V
   ) else (
     echo [ERROR] No JDK 8: "%REPO_ROOT%\tools\jdk8" is missing and JAVA_HOME is not set.
     echo         Install Temurin 8 and set JAVA_HOME, or unpack a JDK 8 into tools\jdk8.
